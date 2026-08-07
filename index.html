@@ -222,6 +222,24 @@ p{margin:0 0 1em}
   display:inline-block;background:var(--ink);color:#fff;border-radius:var(--r-pill);
   padding:8px 16px;font:600 .74rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase
 }
+
+/* ---------- early-bird countdown ---------- */
+.countdown{margin:20px 0 26px;text-align:center}
+.countdown__label{
+  display:block;font:600 .78rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:10px
+}
+.countdown__nums{display:flex;justify-content:center;gap:10px}
+.countdown__nums div{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:10px 12px;min-width:56px
+}
+.countdown__nums b{display:block;font:700 1.4rem/1 var(--mono);color:var(--orange)}
+.countdown__nums small{
+  display:block;font:500 .68rem/1 var(--mono);color:var(--ink-3);
+  margin-top:4px;text-transform:uppercase;letter-spacing:.06em
+}
+
 .price__big{font:800 3.4rem/1 var(--mono);margin:22px 0 4px;letter-spacing:-.03em}
 .price__big small{font:600 1.05rem/1 var(--mono);color:var(--ink-2);letter-spacing:0}
 .price__alt{color:var(--ink-2);font-size:.98rem;margin-bottom:26px}
@@ -315,7 +333,7 @@ p{margin:0 0 1em}
 
     <div class="hero__cta">
       <!-- TODO: Stripe Payment Link (monthly plan). Set it as the default CTA. -->
-      <a class="btn" href="#pricing">Join the Founding Cohort</a>
+      <a class="btn" href="#pricing">Join the Early Bird Cohort</a>
       <p class="hero__price num">
         <b>$100/month &times; 2</b> &nbsp;·&nbsp; or $180 paid in full
       </p>
@@ -367,26 +385,25 @@ p{margin:0 0 1em}
       <div class="card track track--alg rise">
         <span class="track__tag">Track 01</span>
         <h3>Algebra</h3>
-        <!-- TODO: one line naming the actual topics you cover in this track. -->
-        <p>TODO — topic list for the Algebra track.</p>
+        <p>Factoring and symmetric expressions, telescoping and systems, inequalities and AM-GM, sequences, polynomials and Vieta's formulas, and statistics, building to a full theory review before the bootcamp.</p>
         <div class="track__bar" style="--tw:100%"><i></i></div>
       </div>
       <div class="card track track--geo rise">
         <span class="track__tag">Track 02</span>
         <h3>Geometry</h3>
-        <p>TODO — topic list for the Geometry track.</p>
+        <p>Angle chasing, similarity and congruency, coordinate geometry, area techniques, circle geometry, and 3D geometry, building to a full theory review before the bootcamp.</p>
         <div class="track__bar" style="--tw:100%"><i></i></div>
       </div>
       <div class="card track track--comb rise">
         <span class="track__tag">Track 03</span>
         <h3>Combinatorics</h3>
-        <p>TODO — topic list for the Combinatorics track.</p>
+        <p>Smart casework, probability, restrictions and complementary counting, logic puzzles, stars and bars, PIE, and recursive counting, building to a full theory review before the bootcamp.</p>
         <div class="track__bar" style="--tw:100%"><i></i></div>
       </div>
       <div class="card track track--nt rise">
         <span class="track__tag">Track 04</span>
         <h3>Number Theory</h3>
-        <p>TODO — topic list for the Number Theory track.</p>
+        <p>Modular arithmetic, prime factorization, divisibility, digit problems, Diophantine equations and bounding, and factorial number theory, building to a full theory review before the bootcamp.</p>
         <div class="track__bar" style="--tw:100%"><i></i></div>
       </div>
     </div>
@@ -426,32 +443,7 @@ p{margin:0 0 1em}
       <li><b class="num">·</b><span>Weekly homework with feedback<em>Submitted work comes back marked, not just answered</em></span></li>
       <li><b class="num">·</b><span>Handouts for every lecture<em>Theory summary, worked examples, problem set</em></span></li>
       <li><b class="num">·</b><span>Recordings of every session<em>Kept for the full length of the camp</em></span></li>
-      <li><b class="num">3</b><span>Months of ShefMath Premium<em>Daily practice, rating, streaks, progress tracking</em></span></li>
     </ul>
-  </div>
-</section>
-
-<!-- ================= APP ================= -->
-<section class="band">
-  <div class="wrap split">
-    <div class="rise">
-      <p class="eyebrow">Between the lectures</p>
-      <h2>Four hours a week of class. Every other day matters too.</h2>
-      <p class="lede">
-        Every student gets three months of ShefMath Premium. It's where the daily practice,
-        homework, and progress tracking live: an adaptive rating across the same four tracks,
-        so you can see which one is holding your score down.
-      </p>
-      <p class="lede">
-        You're not buying lectures. You're buying the thing that keeps a fifteen-year-old
-        practicing on a Tuesday.
-      </p>
-      <!-- TODO: confirm wording once the App Store release date is firm. Current phrasing
-           deliberately avoids promising a date: "3 months of Premium upon launch". -->
-    </div>
-    <!-- TODO: ShefMath screenshot. Suggest the four-field rating screen, since it
-         mirrors the four tracks and the goal-line meter above. -->
-    <div class="shot shot--ph rise">TODO — ShefMath app screenshot<br>(four-field rating screen)</div>
   </div>
 </section>
 
@@ -502,30 +494,42 @@ p{margin:0 0 1em}
     <p class="lede" style="margin-bottom:40px">
       Two lectures Saturday, two Sunday, plus a Wednesday session from 5:00 to 6:00 p.m.
     </p>
-    <!-- TODO: fill in the weekly topic lines. I have the shape but not your topic
-         sequence per track. Weeks 1-6 are new theory; 7 is review; 8 is bootcamps. -->
     <div class="rise">
       <div class="week"><div class="week__n">Week 0<small>due Sep 12</small></div>
         <div><div class="week__t">Foundation modules</div>
-        <div class="week__d">Self-study across all four tracks. Assigned on enrollment.</div></div></div>
-      <div class="week"><div class="week__n">Week 1<small>Sep 9</small></div>
-        <div><div class="week__t">TODO — week 1 topics</div><div class="week__d">TODO</div></div></div>
-      <div class="week"><div class="week__n">Week 2<small>TODO</small></div>
-        <div><div class="week__t">TODO</div><div class="week__d">TODO</div></div></div>
-      <div class="week"><div class="week__n">Week 3<small>TODO</small></div>
-        <div><div class="week__t">TODO</div><div class="week__d">TODO</div></div></div>
-      <div class="week"><div class="week__n">Week 4<small>TODO</small></div>
-        <div><div class="week__t">TODO</div><div class="week__d">TODO</div></div></div>
-      <div class="week"><div class="week__n">Week 5<small>TODO</small></div>
-        <div><div class="week__t">TODO</div><div class="week__d">TODO</div></div></div>
-      <div class="week"><div class="week__n">Week 6<small>TODO</small></div>
-        <div><div class="week__t">TODO</div><div class="week__d">TODO</div></div></div>
-      <div class="week"><div class="week__n">Week 7<small>TODO</small></div>
-        <div><div class="week__t">Theory review, all four tracks</div>
-        <div class="week__d">Everything from weeks 1–6, consolidated.</div></div></div>
+        <div class="week__d">Self-study across all four tracks: Algebra, Geometry, Combinatorics, and Number Theory foundations. Assigned on enrollment.</div></div></div>
+
+      <div class="week"><div class="week__n">Week 1<small>Sep 9–13</small></div>
+        <div><div class="week__t">Test review + 4 new topics</div>
+        <div class="week__d">Wed: Week 1 test review. Sat: Algebra: Factoring, Identities &amp; Symmetric Expressions; Geometry: Angle Chasing Full (circles, isosceles triangles, angle sum). Sun: Combinatorics: Counting &amp; Smart Casework Review; Number Theory: Modular Arithmetic.</div></div></div>
+
+      <div class="week"><div class="week__n">Week 2<small>Sep 16–20</small></div>
+        <div><div class="week__t">Problem-solving session + 4 new topics</div>
+        <div class="week__d">Wed: Week 2 problem-solving session. Sat: Algebra: Algebraic Manipulation I (telescoping, systems, exponents); Geometry: Similarity &amp; Congruency. Sun: Combinatorics: Probability Review; Number Theory: Factors &amp; Prime Number Thinking.</div></div></div>
+
+      <div class="week"><div class="week__n">Week 3<small>Sep 23–27</small></div>
+        <div><div class="week__t">Test review + 4 new topics</div>
+        <div class="week__d">Wed: Week 3 test review. Sat: Algebra: Inequalities, Basic Intuitions &amp; AM-GM; Geometry: Coordinate Geometry. Sun: Combinatorics: Counting with Restrictions, Complement &amp; Arrangements; Number Theory: Divisibility.</div></div></div>
+
+      <div class="week"><div class="week__n">Week 4<small>Sep 30–Oct 4</small></div>
+        <div><div class="week__t">Problem-solving session + 4 new topics</div>
+        <div class="week__d">Wed: Week 4 problem-solving session. Sat: Algebra: Sequences 01; Geometry: Area Deep Dive. Sun: Combinatorics: Logic Problems Deep Dive; Number Theory: Digits &amp; Decimal Representation.</div></div></div>
+
+      <div class="week"><div class="week__n">Week 5<small>Oct 7–11</small></div>
+        <div><div class="week__t">Test review + 4 new topics</div>
+        <div class="week__d">Wed: Week 5 test review. Sat: Algebra: Polynomials &amp; Vieta's Formulas; Geometry: Similarity, Congruency &amp; Area Revisited. Sun: Combinatorics: Stars &amp; Bars, PIE, Recursion in Counting; Number Theory: Diophantine Equations &amp; Bounding Techniques.</div></div></div>
+
+      <div class="week"><div class="week__n">Week 6<small>Oct 14–18</small></div>
+        <div><div class="week__t">Problem-solving session + 4 new topics</div>
+        <div class="week__d">Wed: Week 6 problem-solving session. Sat: Algebra: Mean, Median, Mode &amp; Data; Geometry: Circle Geometry. Sun: Combinatorics: Probability Deep Dive; Number Theory: Divisors, Perfect Powers &amp; Factorials.</div></div></div>
+
+      <div class="week"><div class="week__n">Week 7<small>Oct 21–25</small></div>
+        <div><div class="week__t">Test review, all four tracks</div>
+        <div class="week__d">Wed: Week 7 test review. Sat: Algebra: Theory Review &amp; Gauss Sums; Geometry: 3D Geometry &amp; Theory Review. Sun: Combinatorics: Theory Review, Simple Patterns &amp; Greedy Maximization; Number Theory: Theory Review. Everything from weeks 1–6, consolidated.</div></div></div>
+
       <div class="week"><div class="week__n">Week 8<small>ends Nov 1</small></div>
         <div><div class="week__t">Problem-solving bootcamps</div>
-        <div class="week__d">No new theory. Problems only, under time, right up to the competition.</div></div></div>
+        <div class="week__d">Wed: Week 8 problem-solving session. Sat: Algebra &amp; Geometry Problem-Solving Bootcamps. Sun: Combinatorics &amp; Number Theory Problem-Solving Bootcamps. No new theory, problems only, under time, right up to the competition.</div></div></div>
     </div>
   </div>
 </section>
@@ -535,11 +539,22 @@ p{margin:0 0 1em}
   <div class="wrap">
     <div style="text-align:center;margin-bottom:44px">
       <p class="eyebrow">Enrollment</p>
-      <h2>Founding Cohort pricing.</h2>
+      <h2>Early Bird pricing.</h2>
     </div>
 
     <div class="price rise">
-      <span class="price__badge">Founding Cohort</span>
+      <span class="price__badge">Early Bird</span>
+
+      <div class="countdown" id="countdown">
+        <span class="countdown__label" id="cd-label">Early bird ends in</span>
+        <div class="countdown__nums">
+          <div><b id="cd-d">00</b><small>days</small></div>
+          <div><b id="cd-h">00</b><small>hrs</small></div>
+          <div><b id="cd-m">00</b><small>min</small></div>
+          <div><b id="cd-s">00</b><small>sec</small></div>
+        </div>
+      </div>
+
       <div class="price__big num">$100<small>/month &times; 2</small></div>
       <p class="price__alt num">or $180 paid in full &nbsp;·&nbsp; save $20</p>
 
@@ -562,13 +577,10 @@ p{margin:0 0 1em}
         <li>Week 0 foundation modules</li>
         <li>Handouts, homework, and feedback</li>
         <li>Recordings of every session</li>
-        <li>3 months of ShefMath Premium</li>
       </ul>
 
       <p class="price__next">
-        <!-- TODO: decide the trigger, seats or a date, then state it precisely.
-             Pick ONE and don't move it. -->
-        Founding rate closes at TODO seats. Regular price is $150/month, or $270 in full.
+        Early bird pricing ends August 21, 2026. After that, regular price is $150/month, or $270 in full.
       </p>
     </div>
 
@@ -584,9 +596,9 @@ p{margin:0 0 1em}
       <p class="num" style="color:var(--ink);font-weight:600;margin-bottom:18px">
         TODO — final price (planned $550–650)
       </p>
-      <!-- TODO: this should probably be an application or an email, not a checkout
-           button. Six seats is worth a conversation. Suggest: mailto with a subject line. -->
-      <a class="btn btn--ghost" href="mailto:marketing@shefscholars.com?subject=Get%20100%20Mentorship">Ask about mentorship</a>
+      <!-- TODO: Stripe Payment Link for the Mentorship package (6 seats). Set a
+           quantity cap of 6 on the link itself. -->
+      <a class="btn btn--ghost" href="#">Enroll in Mentorship</a>
     </div>
   </div>
 </section>
@@ -657,8 +669,24 @@ p{margin:0 0 1em}
     <div class="closer rise">
       <h2>Thirty seats. Eight weeks. One number.</h2>
       <p>The AMC 10 is in November. Week 0 starts the day you enroll.</p>
-      <p style="margin-top:32px"><a class="btn" href="#pricing">Join the Founding Cohort</a></p>
+      <p style="margin-top:32px"><a class="btn" href="#pricing">Join the Early Bird Cohort</a></p>
     </div>
+  </div>
+</section>
+
+<!-- ================= QUESTIONS / BOOK A CALL ================= -->
+<section class="band band--soft">
+  <div class="wrap" style="text-align:center">
+    <p class="eyebrow">Still have questions?</p>
+    <h2>Grab 15 minutes on my calendar.</h2>
+    <p class="lede" style="margin-inline:auto;margin-top:16px">
+      If you're not sure this is the right fit, or you want to talk through your
+      child's current level before enrolling, book a short call directly.
+    </p>
+    <!-- TODO: swap in the real Google Calendar appointment-scheduling link. -->
+    <p style="margin-top:30px">
+      <a class="btn btn--ghost" href="#" target="_blank" rel="noopener">Book a time on Google Calendar</a>
+    </p>
   </div>
 </section>
 
@@ -693,6 +721,43 @@ p{margin:0 0 1em}
       if(d.open) ds.forEach(function(o){ if(o!==d) o.open = false; });
     });
   });
+})();
+
+// Early-bird countdown -> Aug 21, 2026, 11:59:59 PM ET (EDT, UTC-4).
+// TODO: confirm the exact cutoff time you want; this assumes end of day Eastern.
+(function(){
+  var deadline = new Date('2026-08-21T23:59:59-04:00').getTime();
+  var els = {
+    d: document.getElementById('cd-d'),
+    h: document.getElementById('cd-h'),
+    m: document.getElementById('cd-m'),
+    s: document.getElementById('cd-s')
+  };
+  var label = document.getElementById('cd-label');
+  var nums = document.querySelector('#countdown .countdown__nums');
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  function tick(){
+    var diff = deadline - Date.now();
+    if(diff <= 0){
+      if(label) label.textContent = 'Early bird pricing has ended';
+      if(nums) nums.style.display = 'none';
+      clearInterval(timer);
+      return;
+    }
+    var s = Math.floor(diff/1000);
+    var d = Math.floor(s/86400); s -= d*86400;
+    var h = Math.floor(s/3600); s -= h*3600;
+    var m = Math.floor(s/60); s -= m*60;
+    if(els.d) els.d.textContent = pad(d);
+    if(els.h) els.h.textContent = pad(h);
+    if(els.m) els.m.textContent = pad(m);
+    if(els.s) els.s.textContent = pad(s);
+  }
+
+  var timer = setInterval(tick, 1000);
+  tick();
 })();
 </script>
 </body>
