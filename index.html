@@ -10,285 +10,16 @@
 <meta property="og:description" content="An 8-week live program built around one number: 100 on the AMC 10. September 9 to November 1, 2026. 30 students.">
 <meta property="og:url" content="https://www.amc10camp.com">
 <meta property="og:type" content="website">
-<!-- TODO: og:image — 1200x630 social card. Suggest the goal-line meter graphic + "Get 100" wordmark. -->
+<!-- TODO: og:image (1200x630 social card). Suggest the goal-line meter graphic + "Get 100" wordmark. -->
 
-<!-- TODO: FONTS — these are my stand-ins for the ShefMath faces. Replace with whatever
+<!-- TODO: FONTS - these are my stand-ins for the ShefMath faces. Replace with whatever
      the Figma file actually uses. Baloo 2 is rounded/chunky to sit with 3D pill buttons;
      Inter for body because parents read a lot of text here; mono for every numeral. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-<style>
-/* ============================================================
-   TOKENS
-   TODO: every value in this block is a placeholder. Replace with the real
-   ShefMath variables from Figma (get_variable_defs on the design system node).
-   Nothing outside this block hardcodes a color, radius, or font.
-   ============================================================ */
-:root{
-  --orange:        #FF7A1A;   /* TODO: ShefMath primary orange */
-  --orange-deep:   #C24E00;   /* TODO: press/shadow shade of primary */
-  --orange-soft:   #FFE9D6;   /* TODO: tint for surfaces */
-
-  --ink:           #1B1714;
-  --ink-2:         #5C5148;
-  --ink-3:         #8C8078;
-  --paper:         #FFFFFF;
-  --surface:       #FFF7F0;
-  --line:          #EFE2D6;
-
-  /* Four tracks. TODO: match to the app's field colors if it assigns them. */
-  --alg:  #FF7A1A;
-  --geo:  #2E86FF;
-  --comb: #A855F7;
-  --nt:   #00A870;
-
-  --r-sm: 10px;
-  --r-md: 18px;
-  --r-lg: 28px;
-  --r-pill: 999px;
-
-  --display: 'Baloo 2', system-ui, sans-serif;
-  --body: 'Inter', system-ui, sans-serif;
-  --mono: 'IBM Plex Mono', ui-monospace, monospace;
-
-  --shift: 5px;              /* 3D button offset */
-  --wrap: 1080px;
-}
-
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;
-}
-img{max-width:100%;display:block}
-a{color:inherit}
-h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;letter-spacing:-.01em}
-h1{font-size:clamp(2.6rem,7vw,4.6rem);font-weight:800}
-h2{font-size:clamp(2rem,4.4vw,3rem);font-weight:800}
-h3{font-size:1.25rem;font-weight:700}
-p{margin:0 0 1em}
-.wrap{width:min(100% - 40px,var(--wrap));margin-inline:auto}
-.band{padding:clamp(64px,9vw,120px) 0}
-.band--soft{background:var(--surface)}
-.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.eyebrow{
-  font:600 .78rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-3);margin:0 0 18px
-}
-.lede{font-size:1.18rem;color:var(--ink-2);max-width:56ch}
-
-/* ---------- 3D pill button (ShefMath house style) ---------- */
-.btn{
-  display:inline-block;font:700 1.05rem/1 var(--display);
-  padding:19px 34px 20px;border-radius:var(--r-pill);border:0;cursor:pointer;
-  background:var(--orange);color:#fff;text-decoration:none;
-  box-shadow:0 var(--shift) 0 var(--orange-deep);
-  transition:transform .06s ease,box-shadow .06s ease;
-}
-.btn:active{transform:translateY(var(--shift));box-shadow:0 0 0 var(--orange-deep)}
-.btn--ghost{
-  background:var(--paper);color:var(--ink);box-shadow:0 var(--shift) 0 var(--line);
-}
-.btn--wide{width:100%;text-align:center}
-:where(a,button,summary):focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-
-/* ---------- header ---------- */
-.hdr{
-  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);
-  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)
-}
-.hdr__in{display:flex;align-items:center;gap:16px;height:70px}
-.brand{font:800 1.3rem/1 var(--display);text-decoration:none;margin-right:auto}
-.brand span{color:var(--orange)}
-.hdr .btn{padding:13px 24px 14px;font-size:.95rem;--shift:4px}
-.hdr__links{display:flex;gap:26px;font-size:.95rem;font-weight:500}
-.hdr__links a{text-decoration:none;color:var(--ink-2)}
-.hdr__links a:hover{color:var(--ink)}
-@media(max-width:820px){.hdr__links{display:none}}
-
-/* ---------- SIGNATURE: the goal-line meter ----------
-   AMC 10 is out of 150. The line at 100 is the whole product. */
-.meter{margin:38px 0 0}
-.meter__scale{
-  position:relative;height:26px;border-radius:var(--r-pill);
-  background:var(--surface);border:1px solid var(--line);overflow:hidden
-}
-.meter__fill{display:flex;height:100%;width:0;transition:width 1.5s cubic-bezier(.2,.8,.2,1)}
-.meter.is-on .meter__fill{width:calc(100% * 100 / 150)}
-.meter__seg{height:100%}
-.meter__seg--alg{flex:28;background:var(--alg)}
-.meter__seg--geo{flex:26;background:var(--geo)}
-.meter__seg--comb{flex:23;background:var(--comb)}
-.meter__seg--nt{flex:23;background:var(--nt)}
-.meter__goal{
-  position:absolute;left:calc(100% * 100 / 150);top:-9px;bottom:-9px;width:3px;
-  background:var(--ink);border-radius:2px
-}
-.meter__axis{
-  display:flex;justify-content:space-between;margin-top:12px;
-  font:500 .8rem/1 var(--mono);color:var(--ink-3)
-}
-.meter__label{
-  position:absolute;left:calc(100% * 100 / 150);transform:translateX(-50%);
-  top:26px;font:600 .8rem/1 var(--mono);color:var(--ink);white-space:nowrap
-}
-.meter__wrap{position:relative;padding-bottom:26px}
-
-/* ---------- hero ---------- */
-.hero{padding:clamp(56px,8vw,96px) 0 clamp(56px,8vw,88px)}
-.hero h1 span{color:var(--orange)}
-.hero__lede{font-size:1.22rem;color:var(--ink-2);max-width:50ch;margin-top:26px}
-.hero__cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:38px}
-.hero__price{font:600 1rem/1.5 var(--mono);color:var(--ink-2)}
-.hero__price b{color:var(--ink);font-weight:600}
-
-/* ---------- credential strip ---------- */
-.creds{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px;
-  background:var(--line);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden
-}
-.creds div{background:var(--paper);padding:24px 22px}
-.creds b{display:block;font:700 1.6rem/1 var(--mono);color:var(--orange);margin-bottom:6px}
-.creds small{font-size:.92rem;color:var(--ink-2);line-height:1.4;display:block}
-
-/* ---------- generic grid ---------- */
-.grid{display:grid;gap:22px}
-.grid--2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.grid--4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.card{
-  background:var(--paper);border:1px solid var(--line);
-  border-radius:var(--r-lg);padding:30px
-}
-.card p{color:var(--ink-2);font-size:.98rem;margin-bottom:0}
-.card h3{margin-bottom:10px}
-
-/* ---------- track cards ---------- */
-.track{border-top:6px solid var(--tc)}
-.track__tag{
-  font:600 .74rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
-  color:var(--tc);margin-bottom:12px;display:block
-}
-.track__bar{height:8px;border-radius:var(--r-pill);background:var(--surface);margin-top:22px;overflow:hidden}
-.track__bar i{display:block;height:100%;background:var(--tc);width:var(--tw)}
-.track--alg{--tc:var(--alg)} .track--geo{--tc:var(--geo)}
-.track--comb{--tc:var(--comb)} .track--nt{--tc:var(--nt)}
-
-/* ---------- included list ---------- */
-.incl{list-style:none;padding:0;margin:0;display:grid;gap:2px;
-  background:var(--line);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
-.incl li{background:var(--paper);padding:20px 24px;display:flex;gap:18px;align-items:baseline}
-.incl b{font:600 .95rem/1.5 var(--mono);color:var(--orange);min-width:44px}
-.incl span{font-size:1rem}
-.incl em{color:var(--ink-3);font-style:normal;font-size:.92rem;display:block;margin-top:3px}
-
-/* ---------- split ---------- */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);align-items:center}
-@media(max-width:820px){.split{grid-template-columns:1fr}}
-.shot{
-  border-radius:var(--r-lg);border:1px solid var(--line);overflow:hidden;background:var(--surface)
-}
-.shot--ph{
-  aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:24px;
-  font:500 .9rem/1.5 var(--mono);color:var(--ink-3)
-}
-
-/* ---------- testimonials ---------- */
-.quotes{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
-.quote{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px}
-.quote p{font-size:1.02rem;color:var(--ink)}
-.quote cite{font:600 .9rem/1 var(--mono);color:var(--ink-3);font-style:normal}
-
-/* ---------- schedule ---------- */
-.week{
-  display:grid;grid-template-columns:120px 1fr;gap:24px;
-  padding:24px 0;border-top:1px solid var(--line)
-}
-.week:last-child{border-bottom:1px solid var(--line)}
-.week__n{font:600 .95rem/1.5 var(--mono);color:var(--orange)}
-.week__n small{display:block;color:var(--ink-3);font-size:.82rem}
-.week__t{font-family:var(--display);font-weight:700;font-size:1.1rem;margin-bottom:4px}
-.week__d{color:var(--ink-2);font-size:.96rem}
-@media(max-width:640px){.week{grid-template-columns:1fr;gap:8px}}
-
-/* ---------- pricing ---------- */
-.price{
-  background:var(--paper);border:2px solid var(--ink);border-radius:var(--r-lg);
-  padding:clamp(28px,4vw,44px);max-width:520px;margin-inline:auto
-}
-.price__badge{
-  display:inline-block;background:var(--ink);color:#fff;border-radius:var(--r-pill);
-  padding:8px 16px;font:600 .74rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase
-}
-
-/* ---------- early-bird countdown ---------- */
-.countdown{margin:20px 0 26px;text-align:center}
-.countdown__label{
-  display:block;font:600 .78rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:10px
-}
-.countdown__nums{display:flex;justify-content:center;gap:10px}
-.countdown__nums div{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);
-  padding:10px 12px;min-width:56px
-}
-.countdown__nums b{display:block;font:700 1.4rem/1 var(--mono);color:var(--orange)}
-.countdown__nums small{
-  display:block;font:500 .68rem/1 var(--mono);color:var(--ink-3);
-  margin-top:4px;text-transform:uppercase;letter-spacing:.06em
-}
-
-.price__big{font:800 3.4rem/1 var(--mono);margin:22px 0 4px;letter-spacing:-.03em}
-.price__big small{font:600 1.05rem/1 var(--mono);color:var(--ink-2);letter-spacing:0}
-.price__alt{color:var(--ink-2);font-size:.98rem;margin-bottom:26px}
-.price ul{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:11px;font-size:.97rem}
-.price li::before{content:"✓";color:var(--orange);font-weight:700;margin-right:11px}
-.price__next{
-  margin-top:22px;padding-top:20px;border-top:1px solid var(--line);
-  font:500 .88rem/1.6 var(--mono);color:var(--ink-3);text-align:center
-}
-.seats{margin:26px 0 0}
-.seats__bar{height:10px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);overflow:hidden}
-.seats__bar i{display:block;height:100%;background:var(--orange);width:var(--taken)}
-.seats__txt{font:500 .85rem/1 var(--mono);color:var(--ink-2);margin-top:10px;text-align:center}
-
-/* ---------- mentorship ---------- */
-.mentor{
-  border:1px dashed var(--ink-3);border-radius:var(--r-lg);
-  padding:clamp(26px,4vw,38px);max-width:760px;margin:44px auto 0;background:var(--paper)
-}
-
-/* ---------- faq ---------- */
-.faq{max-width:760px;margin-inline:auto}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{
-  cursor:pointer;list-style:none;padding:22px 0;font-family:var(--display);
-  font-weight:700;font-size:1.08rem;display:flex;justify-content:space-between;gap:20px
-}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--orange);font-size:1.5rem;line-height:1}
-.faq details[open] summary::after{content:"–"}
-.faq div{padding:0 0 24px;color:var(--ink-2);font-size:1rem}
-
-/* ---------- closer + footer ---------- */
-.closer{background:var(--ink);color:#fff;text-align:center;border-radius:var(--r-lg);padding:clamp(48px,7vw,80px) 28px}
-.closer h2{margin-bottom:18px}
-.closer p{color:#C9BFB6;max-width:46ch;margin-inline:auto}
-.ftr{padding:52px 0;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-3)}
-.ftr__in{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between}
-.ftr a{color:var(--ink-2)}
-
-/* ---------- motion ---------- */
-.rise{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
-.rise.is-on{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  .rise{opacity:1;transform:none}
-  .meter__fill{width:calc(100% * 100 / 150)}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -310,7 +41,7 @@ p{margin:0 0 1em}
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Live online &middot; Sep 9 – Nov 1, 2026 &middot; 30 students</p>
+    <p class="eyebrow">Live online &middot; Sep 9 - Nov 1, 2026 &middot; 30 students</p>
     <h1>The AMC 10 is out of 150.<br>We get you past <span>100</span>.</h1>
     <p class="hero__lede">
       Eight weeks of live instruction across four tracks, built around a single number.
@@ -332,10 +63,9 @@ p{margin:0 0 1em}
     </div>
 
     <div class="hero__cta">
-      <!-- TODO: Stripe Payment Link (monthly plan). Set it as the default CTA. -->
       <a class="btn" href="#pricing">Join the Early Bird Cohort</a>
       <p class="hero__price num">
-        <b>$100/month &times; 2</b> &nbsp;·&nbsp; or $180 paid in full
+        <b>$180</b> camp &nbsp;·&nbsp; <b>$630</b> with mentorship
       </p>
     </div>
   </div>
@@ -368,7 +98,7 @@ p{margin:0 0 1em}
     </div>
     <!-- TODO: replace with a real handout screenshot. Suggest a page of
          "Factoring Identities and Symmetric Expressions" with visible worked solution. -->
-    <div class="shot shot--ph rise">TODO — handout screenshot<br>(real page from an Algebra track handout)</div>
+    <div class="shot shot--ph rise">TODO: handout screenshot<br>(real page from an Algebra track handout)</div>
   </div>
 </section>
 
@@ -414,7 +144,7 @@ p{margin:0 0 1em}
 <section class="band">
   <div class="wrap split">
     <!-- TODO: handout screenshot, ideally a Week 0 foundation module page. -->
-    <div class="shot shot--ph rise">TODO — Week 0 module screenshot</div>
+    <div class="shot shot--ph rise">TODO: Week 0 module screenshot</div>
     <div class="rise">
       <p class="eyebrow">Week 0 &middot; due before Sep 12</p>
       <h2>New students start level with everyone else.</h2>
@@ -438,7 +168,7 @@ p{margin:0 0 1em}
     <h2>The complete program.</h2>
     <ul class="incl rise" style="margin-top:40px">
       <li><b class="num">32</b><span>Live topic lectures<em>Two on Saturday, two on Sunday, every week</em></span></li>
-      <li><b class="num">8</b><span>Wednesday sessions, 5:00–6:00 p.m. EST<em>Alternating practice-test review and problem-solving workshop</em></span></li>
+      <li><b class="num">8</b><span>Wednesday sessions, 5:00-6:00 p.m. EST<em>Alternating practice-test review and problem-solving workshop</em></span></li>
       <li><b class="num">4</b><span>Week 0 foundation modules<em>One per track, self-study, due before Sep 12</em></span></li>
       <li><b class="num">·</b><span>Weekly homework with feedback<em>Submitted work comes back marked, not just answered</em></span></li>
       <li><b class="num">·</b><span>Handouts for every lecture<em>Theory summary, worked examples, problem set</em></span></li>
@@ -451,7 +181,7 @@ p{margin:0 0 1em}
 <section class="band band--soft">
   <div class="wrap split">
     <!-- TODO: your headshot. The one on the current site is fine, reuse it. -->
-    <div class="shot shot--ph rise" style="aspect-ratio:1/1">TODO — coach headshot</div>
+    <div class="shot shot--ph rise" style="aspect-ratio:1/1">TODO: coach headshot</div>
     <div class="rise">
       <p class="eyebrow">Your coach</p>
       <h2>I'm teaching this one myself.</h2>
@@ -479,57 +209,25 @@ p{margin:0 0 1em}
          reads "qualified for Iberoamerican" and assumes their kid will drown.
          Use the credit line each parent selected on the form. -->
     <div class="quotes rise" style="margin-top:40px">
-      <div class="quote"><p>TODO — parent testimonial 1.</p>TODO — credit line</div>
-      <div class="quote"><p>TODO — parent testimonial 2.</p>TODO — credit line</div>
-      <div class="quote"><p>TODO — parent testimonial 3.</p>TODO — credit line</div>
+      <div class="quote"><p>TODO: parent testimonial 1.</p>TODO: credit line</div>
+      <div class="quote"><p>TODO: parent testimonial 2.</p>TODO: credit line</div>
+      <div class="quote"><p>TODO: parent testimonial 3.</p>TODO: credit line</div>
     </div>
   </div>
 </section>
 
-<!-- ================= SCHEDULE ================= -->
+<!-- ================= SCHEDULE (data from schedule.json) ================= -->
 <section class="band band--soft" id="schedule">
   <div class="wrap">
-    <p class="eyebrow">Sep 9 – Nov 1, 2026 &middot; all times EST</p>
+    <p class="eyebrow">Sep 9 - Nov 1, 2026 &middot; all times EST</p>
     <h2>Eight weeks.</h2>
     <p class="lede" style="margin-bottom:40px">
       Two lectures Saturday, two Sunday, plus a Wednesday session from 5:00 to 6:00 p.m.
+      Pick a week below.
     </p>
-    <div class="rise">
-      <div class="week"><div class="week__n">Week 0<small>due Sep 12</small></div>
-        <div><div class="week__t">Foundation modules</div>
-        <div class="week__d">Self-study across all four tracks: Algebra, Geometry, Combinatorics, and Number Theory foundations. Assigned on enrollment.</div></div></div>
-
-      <div class="week"><div class="week__n">Week 1<small>Sep 9–13</small></div>
-        <div><div class="week__t">Test review + 4 new topics</div>
-        <div class="week__d">Wed: Week 1 test review. Sat: Algebra: Factoring, Identities &amp; Symmetric Expressions; Geometry: Angle Chasing Full (circles, isosceles triangles, angle sum). Sun: Combinatorics: Counting &amp; Smart Casework Review; Number Theory: Modular Arithmetic.</div></div></div>
-
-      <div class="week"><div class="week__n">Week 2<small>Sep 16–20</small></div>
-        <div><div class="week__t">Problem-solving session + 4 new topics</div>
-        <div class="week__d">Wed: Week 2 problem-solving session. Sat: Algebra: Algebraic Manipulation I (telescoping, systems, exponents); Geometry: Similarity &amp; Congruency. Sun: Combinatorics: Probability Review; Number Theory: Factors &amp; Prime Number Thinking.</div></div></div>
-
-      <div class="week"><div class="week__n">Week 3<small>Sep 23–27</small></div>
-        <div><div class="week__t">Test review + 4 new topics</div>
-        <div class="week__d">Wed: Week 3 test review. Sat: Algebra: Inequalities, Basic Intuitions &amp; AM-GM; Geometry: Coordinate Geometry. Sun: Combinatorics: Counting with Restrictions, Complement &amp; Arrangements; Number Theory: Divisibility.</div></div></div>
-
-      <div class="week"><div class="week__n">Week 4<small>Sep 30–Oct 4</small></div>
-        <div><div class="week__t">Problem-solving session + 4 new topics</div>
-        <div class="week__d">Wed: Week 4 problem-solving session. Sat: Algebra: Sequences 01; Geometry: Area Deep Dive. Sun: Combinatorics: Logic Problems Deep Dive; Number Theory: Digits &amp; Decimal Representation.</div></div></div>
-
-      <div class="week"><div class="week__n">Week 5<small>Oct 7–11</small></div>
-        <div><div class="week__t">Test review + 4 new topics</div>
-        <div class="week__d">Wed: Week 5 test review. Sat: Algebra: Polynomials &amp; Vieta's Formulas; Geometry: Similarity, Congruency &amp; Area Revisited. Sun: Combinatorics: Stars &amp; Bars, PIE, Recursion in Counting; Number Theory: Diophantine Equations &amp; Bounding Techniques.</div></div></div>
-
-      <div class="week"><div class="week__n">Week 6<small>Oct 14–18</small></div>
-        <div><div class="week__t">Problem-solving session + 4 new topics</div>
-        <div class="week__d">Wed: Week 6 problem-solving session. Sat: Algebra: Mean, Median, Mode &amp; Data; Geometry: Circle Geometry. Sun: Combinatorics: Probability Deep Dive; Number Theory: Divisors, Perfect Powers &amp; Factorials.</div></div></div>
-
-      <div class="week"><div class="week__n">Week 7<small>Oct 21–25</small></div>
-        <div><div class="week__t">Test review, all four tracks</div>
-        <div class="week__d">Wed: Week 7 test review. Sat: Algebra: Theory Review &amp; Gauss Sums; Geometry: 3D Geometry &amp; Theory Review. Sun: Combinatorics: Theory Review, Simple Patterns &amp; Greedy Maximization; Number Theory: Theory Review. Everything from weeks 1–6, consolidated.</div></div></div>
-
-      <div class="week"><div class="week__n">Week 8<small>ends Nov 1</small></div>
-        <div><div class="week__t">Problem-solving bootcamps</div>
-        <div class="week__d">Wed: Week 8 problem-solving session. Sat: Algebra &amp; Geometry Problem-Solving Bootcamps. Sun: Combinatorics &amp; Number Theory Problem-Solving Bootcamps. No new theory, problems only, under time, right up to the competition.</div></div></div>
+    <div class="sched-tabs rise" id="sched-tabs"></div>
+    <div id="sched-panel" class="rise">
+      <p class="lede">Loading schedule...</p>
     </div>
   </div>
 </section>
@@ -539,66 +237,72 @@ p{margin:0 0 1em}
   <div class="wrap">
     <div style="text-align:center;margin-bottom:44px">
       <p class="eyebrow">Enrollment</p>
-      <h2>Early Bird pricing.</h2>
+      <h2>Two ways to join.</h2>
     </div>
 
-    <div class="price rise">
-      <span class="price__badge">Early Bird</span>
+    <div class="pricing-grid rise">
 
-      <div class="countdown" id="countdown">
-        <span class="countdown__label" id="cd-label">Early bird ends in</span>
-        <div class="countdown__nums">
-          <div><b id="cd-d">00</b><small>days</small></div>
-          <div><b id="cd-h">00</b><small>hrs</small></div>
-          <div><b id="cd-m">00</b><small>min</small></div>
-          <div><b id="cd-s">00</b><small>sec</small></div>
+      <div class="price">
+        <span class="price__badge">Early Bird &middot; Camp</span>
+
+        <div class="countdown" id="countdown">
+          <span class="countdown__label" id="cd-label">Early bird ends in</span>
+          <div class="countdown__nums">
+            <div><b id="cd-d">00</b><small>days</small></div>
+            <div><b id="cd-h">00</b><small>hrs</small></div>
+            <div><b id="cd-m">00</b><small>min</small></div>
+            <div><b id="cd-s">00</b><small>sec</small></div>
+          </div>
         </div>
+
+        <div class="price__big num">$180</div>
+        <p class="price__alt">The full program, paid once</p>
+
+        <!-- TODO: Stripe Payment Link for the $180 camp. Set a seat cap of 30
+             on the link itself. Success URL should redirect to the student
+             intake Google Form. -->
+        <a class="btn btn--wide" href="#">Enroll &middot; $180</a>
+
+        <div class="seats">
+          <!-- TODO: update --taken and the seat count below as seats fill. 0/30 at launch. -->
+          <div class="seats__bar" style="--taken:0%"><i></i></div>
+          <p class="seats__txt">0 of 30 seats taken</p>
+        </div>
+
+        <ul>
+          <li>All 40 live sessions</li>
+          <li>Week 0 foundation modules</li>
+          <li>Handouts, homework, and feedback</li>
+          <li>Recordings of every session</li>
+        </ul>
+
+        <p class="price__next">
+          Early bird pricing ends August 21, 2026. Regular price is $270.
+        </p>
       </div>
 
-      <div class="price__big num">$100<small>/month &times; 2</small></div>
-      <p class="price__alt num">or $180 paid in full &nbsp;·&nbsp; save $20</p>
+      <div class="price">
+        <span class="price__badge">Mentorship &middot; 6 seats</span>
+        <div class="price__big num">$630</div>
+        <p class="price__alt">Camp + private coaching, paid once</p>
 
-      <!-- TODO: Stripe Payment Links. Two links: a 2-month subscription and a one-time
-           $180 charge. Set the seat cap on both so enrollment closes itself at 30.
-           Success URL should redirect to the student intake Google Form. -->
-      <a class="btn btn--wide" href="#">Enroll monthly &middot; $100 today</a>
-      <p style="text-align:center;margin:14px 0 0">
-        <a href="#" style="font:500 .92rem/1 var(--mono);color:var(--ink-2)">or pay $180 in full</a>
-      </p>
+        <!-- TODO: Stripe Payment Link for the $630 Mentorship package.
+             Set a quantity cap of 6 on the link itself. -->
+        <a class="btn btn--wide" href="#">Enroll &middot; $630</a>
 
-      <div class="seats">
-        <!-- TODO: update --taken as seats fill. 0/30 at launch. -->
-        <div class="seats__bar" style="--taken:0%"><i></i></div>
-        <p class="seats__txt">TODO — <span class="num">0</span> of <span class="num">30</span> seats taken</p>
+        <ul>
+          <li>Everything in the camp</li>
+          <li>Weekly 30-minute private session with me</li>
+          <li>Personalized study plan</li>
+          <li>Homework review + mid-camp progress assessment</li>
+          <li>Written recommendation at the end</li>
+        </ul>
+
+        <p class="price__next">
+          Only 6 spots available. Closes when they're gone, not on a date.
+        </p>
       </div>
 
-      <ul>
-        <li>All 40 live sessions</li>
-        <li>Week 0 foundation modules</li>
-        <li>Handouts, homework, and feedback</li>
-        <li>Recordings of every session</li>
-      </ul>
-
-      <p class="price__next">
-        Early bird pricing ends August 21, 2026. After that, regular price is $150/month, or $270 in full.
-      </p>
-    </div>
-
-    <!-- Secondary offer. Deliberately small: this page sells one thing. -->
-    <div class="mentor rise">
-      <p class="eyebrow" style="margin-bottom:12px">Add-on &middot; 6 students only</p>
-      <h3 style="margin-bottom:12px">Mentorship</h3>
-      <p style="color:var(--ink-2);margin-bottom:18px">
-        Everything in the camp, plus a weekly 30-minute private session with me, a
-        personalized study plan, homework review, a mid-camp progress assessment, and
-        written recommendations at the end.
-      </p>
-      <p class="num" style="color:var(--ink);font-weight:600;margin-bottom:18px">
-        TODO — final price (planned $550–650)
-      </p>
-      <!-- TODO: Stripe Payment Link for the Mentorship package (6 seats). Set a
-           quantity cap of 6 on the link itself. -->
-      <a class="btn btn--ghost" href="#">Enroll in Mentorship</a>
     </div>
   </div>
 </section>
@@ -610,7 +314,7 @@ p{margin:0 0 1em}
 
     <details>
       <summary>What's the difference between this and the Basics camp?</summary>
-      <div>The summer Basics camp covered AMC 10 problems 1–8. This one is built for the
+      <div>The summer Basics camp covered AMC 10 problems 1-8. This one is built for the
       whole paper and a score above 100, with four parallel tracks and eight weeks of
       problem-solving running right up to the competition.</div>
     </details>
@@ -631,7 +335,7 @@ p{margin:0 0 1em}
       <summary>How much work is it outside class?</summary>
       <!-- TODO: give a real number of hours. Parents are budgeting against soccer and
            SAT prep and this is the question that decides it. -->
-      <div>TODO — hours per week, honestly stated.</div>
+      <div>TODO: hours per week, honestly stated.</div>
     </details>
 
     <details>
@@ -652,14 +356,9 @@ p{margin:0 0 1em}
       <!-- TODO: the old site said no refunds at all. Consider softening to a
            refund window through the first week. It costs you almost nothing at 30 seats
            and removes the single biggest objection at checkout. Your call. -->
-      <div>TODO — refund policy.</div>
+      <div>TODO: refund policy.</div>
     </details>
 
-    <details>
-      <summary>How does the monthly payment work?</summary>
-      <div>TODO — two charges, one at enrollment and one a month later. Confirm the exact
-      second charge date once the Stripe subscription is set up.</div>
-    </details>
   </div>
 </section>
 
@@ -701,64 +400,6 @@ p{margin:0 0 1em}
   </div>
 </footer>
 
-<script>
-// Reveal on scroll + fill the hero meter once it's visible.
-(function(){
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('is-on'); io.unobserve(e.target); }
-    });
-  },{threshold:.15});
-  document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
-
-  var m = document.getElementById('heroMeter');
-  if(m){ setTimeout(function(){ m.classList.add('is-on'); }, 250); }
-
-  // One FAQ open at a time.
-  var ds = document.querySelectorAll('.faq details');
-  ds.forEach(function(d){
-    d.addEventListener('toggle', function(){
-      if(d.open) ds.forEach(function(o){ if(o!==d) o.open = false; });
-    });
-  });
-})();
-
-// Early-bird countdown -> Aug 21, 2026, 11:59:59 PM ET (EDT, UTC-4).
-// TODO: confirm the exact cutoff time you want; this assumes end of day Eastern.
-(function(){
-  var deadline = new Date('2026-08-21T23:59:59-04:00').getTime();
-  var els = {
-    d: document.getElementById('cd-d'),
-    h: document.getElementById('cd-h'),
-    m: document.getElementById('cd-m'),
-    s: document.getElementById('cd-s')
-  };
-  var label = document.getElementById('cd-label');
-  var nums = document.querySelector('#countdown .countdown__nums');
-
-  function pad(n){ return String(n).padStart(2,'0'); }
-
-  function tick(){
-    var diff = deadline - Date.now();
-    if(diff <= 0){
-      if(label) label.textContent = 'Early bird pricing has ended';
-      if(nums) nums.style.display = 'none';
-      clearInterval(timer);
-      return;
-    }
-    var s = Math.floor(diff/1000);
-    var d = Math.floor(s/86400); s -= d*86400;
-    var h = Math.floor(s/3600); s -= h*3600;
-    var m = Math.floor(s/60); s -= m*60;
-    if(els.d) els.d.textContent = pad(d);
-    if(els.h) els.h.textContent = pad(h);
-    if(els.m) els.m.textContent = pad(m);
-    if(els.s) els.s.textContent = pad(s);
-  }
-
-  var timer = setInterval(tick, 1000);
-  tick();
-})();
-</script>
+<script src="script.js"></script>
 </body>
 </html>

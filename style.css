@@ -179,23 +179,55 @@ p{margin:0 0 1em}
 .quote p{font-size:1.02rem;color:var(--ink)}
 .quote cite{font:600 .9rem/1 var(--mono);color:var(--ink-3);font-style:normal}
 
-/* ---------- schedule ---------- */
-.week{
-  display:grid;grid-template-columns:120px 1fr;gap:24px;
-  padding:24px 0;border-top:1px solid var(--line)
+/* ---------- schedule (loaded from schedule.json) ---------- */
+.sched-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.sched-tab{
+  font:600 .85rem/1 var(--mono);padding:10px 16px;border-radius:var(--r-pill);
+  border:1px solid var(--line);background:var(--paper);color:var(--ink-2);cursor:pointer
 }
-.week:last-child{border-bottom:1px solid var(--line)}
-.week__n{font:600 .95rem/1.5 var(--mono);color:var(--orange)}
-.week__n small{display:block;color:var(--ink-3);font-size:.82rem}
-.week__t{font-family:var(--display);font-weight:700;font-size:1.1rem;margin-bottom:4px}
-.week__d{color:var(--ink-2);font-size:.96rem}
-@media(max-width:640px){.week{grid-template-columns:1fr;gap:8px}}
+.sched-tab:hover{border-color:var(--ink-3)}
+.sched-tab.is-active{background:var(--ink);border-color:var(--ink);color:#fff}
+
+.sched-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sched-head h3{font-size:1.5rem}
+.sched-date{color:var(--ink-3);font-size:.9rem}
+.sched-desc{color:var(--ink-2);max-width:64ch;margin-top:10px}
+
+.sched-wed{
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:16px 20px;margin:22px 0
+}
+.sched-wed__tag{
+  font:600 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  background:var(--ink);color:#fff;border-radius:var(--r-pill);padding:5px 10px
+}
+.sched-wed b{font-family:var(--display);font-size:1rem}
+.sched-wed .num{color:var(--ink-3);font-size:.85rem;margin-left:auto}
+
+.sched-grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:22px}
+.sched-card{
+  border:1px solid var(--line);border-left:5px solid var(--tc);border-radius:var(--r-md);
+  padding:20px 22px;background:var(--paper)
+}
+.sched-card__track{
+  font:600 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tc)
+}
+.sched-card h4{font-family:var(--display);font-size:1.05rem;margin:10px 0 8px}
+.sched-card__when{font:500 .82rem/1 var(--mono);color:var(--ink-3);margin-bottom:10px}
+.sched-card__desc{color:var(--ink-2);font-size:.92rem;margin-bottom:0}
+.sched-error{color:var(--ink-2)}
 
 /* ---------- pricing ---------- */
+.pricing-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:28px;max-width:940px;margin-inline:auto;align-items:start
+}
 .price{
   background:var(--paper);border:2px solid var(--ink);border-radius:var(--r-lg);
   padding:clamp(28px,4vw,44px);max-width:520px;margin-inline:auto
 }
+.pricing-grid .price{max-width:none;margin-inline:0}
 .price__badge{
   display:inline-block;background:var(--ink);color:#fff;border-radius:var(--r-pill);
   padding:8px 16px;font:600 .74rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase
@@ -231,12 +263,6 @@ p{margin:0 0 1em}
 .seats__bar{height:10px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);overflow:hidden}
 .seats__bar i{display:block;height:100%;background:var(--orange);width:var(--taken)}
 .seats__txt{font:500 .85rem/1 var(--mono);color:var(--ink-2);margin-top:10px;text-align:center}
-
-/* ---------- mentorship ---------- */
-.mentor{
-  border:1px dashed var(--ink-3);border-radius:var(--r-lg);
-  padding:clamp(26px,4vw,38px);max-width:760px;margin:44px auto 0;background:var(--paper)
-}
 
 /* ---------- faq ---------- */
 .faq{max-width:760px;margin-inline:auto}
