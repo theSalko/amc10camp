@@ -14,7 +14,9 @@
           "trackLabel": "Algebra",
           "title": "Algebra Foundations (Pre-Work)",
           "when": "Self-paced, due before Sep 12, 2026",
-"description": "Builds arithmetic fluency and word-problem setup: order of operations, nested fractions, grouping symbols, absolute value, and negatives; translating word problems into equations, including rate/distance/time and money/unit conversions; and percent change, successive percentage changes, and percent vs. percentage points."        {
+"description": "Builds arithmetic fluency and word-problem setup: order of operations, nested fractions, grouping symbols, absolute value, and negatives; translating word problems into equations, including rate/distance/time and money/unit conversions; and percent change, successive percentage changes, and percent vs. percentage points." 
+        }
+          {
           "track": "geo",
           "trackLabel": "Geometry",
           "title": "Geometry Foundations (Pre-Work)",
