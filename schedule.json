@@ -1,13 +1,13 @@
 {
   "range": "Sep 9 - Nov 1, 2026",
-  "timezoneNote": "all times EST",
+  "timezoneNote": "all times New York (ET)",
   "weeks": [
     {
       "id": "week-0",
       "label": "Week 0",
       "dateNote": "Due before Sep 12, 2026",
       "title": "Foundation modules",
-      "description": "Self-paced modules across all four tracks, assigned the moment you enroll so new students start level with returning ones.",
+      "description": "Self-paced modules across all four tracks, sent from August 25 or within 48 hours of enrolling, so new students start level with returning ones.",
       "sessions": [
         {
           "track": "alg",
@@ -48,36 +48,36 @@
         {
           "track": "all",
           "trackLabel": "All Tracks",
-          "title": "Week 1 Test Review",
-          "when": "Wed, Sep 9, 2026, 5:00 - 6:00 PM EST",
-          "description": "Review the week's practice test."
+          "title": "Diagnostic Practice Test Review",
+          "when": "Wed, Sep 9, 2026, 5:00 - 6:00 PM ET",
+          "description": "Review of the diagnostic practice test, taken on your own beforehand under exam conditions. This is the starting number we measure against."
         },
         {
           "track": "alg",
           "trackLabel": "Algebra",
           "title": "Factoring, Identities and Symmetric Expressions",
-          "when": "Sat, Sep 12, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sat, Sep 12, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Difference of squares, sum/difference of cubes, perfect-square trinomials, and factoring by grouping, plus symmetric identities like a^2 + b^2 = (a+b)^2 - 2ab used to skip expansion entirely."
         },
         {
           "track": "geo",
           "trackLabel": "Geometry",
           "title": "Angle Chasing Full: Circles + Isosceles Triangles + Sum 180 degrees",
-          "when": "Sat, Sep 12, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sat, Sep 12, 2026, 12:30 - 1:30 PM ET",
           "description": "The angle sum of a triangle is 180 degrees, and equal angles in a triangle mean equal side lengths; the inscribed angle theorem and its corollaries (an angle inscribed in a semicircle is 90 degrees); central vs. inscribed angles; the cyclic quadrilateral angle sum; and using radii to build isosceles triangles inside circle diagrams."
         },
         {
           "track": "comb",
           "trackLabel": "Combinatorics",
           "title": "Counting and Smart Casework Review",
-          "when": "Sun, Sep 13, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sun, Sep 13, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Building exhaustive, non-overlapping cases, recognizing when a direct formula beats casework, and a first pass at complementary counting (total minus bad)."
         },
         {
           "track": "nt",
           "trackLabel": "Number Theory",
           "title": "Modular Arithmetic",
-          "when": "Sun, Sep 13, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sun, Sep 13, 2026, 12:30 - 1:30 PM ET",
           "description": "Congruence notation and arithmetic under a modulus, using mod to find units digits and remainders quickly, the machinery behind the Week 0 divisibility rules."
         }
       ]
@@ -92,35 +92,35 @@
           "track": "all",
           "trackLabel": "All Tracks",
           "title": "Week 2 Problem Solving Session",
-          "when": "Wed, Sep 16, 2026, 5:00 - 6:00 PM EST",
+          "when": "Wed, Sep 16, 2026, 5:00 - 6:00 PM ET",
           "description": "Solve various problems and review techniques."
         },
         {
           "track": "alg",
           "trackLabel": "Algebra",
           "title": "Algebraic Manipulation I: Telescoping, Solving Systems, Exponents",
-          "when": "Sat, Sep 19, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sat, Sep 19, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Telescoping sums and products by cancelling differences, solving 2- and 3-variable systems by substitution and elimination, and exponent laws including negative and fractional exponents."
         },
         {
           "track": "geo",
           "trackLabel": "Geometry",
           "title": "Similarity & Congruency",
-          "when": "Sat, Sep 19, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sat, Sep 19, 2026, 12:30 - 1:30 PM ET",
           "description": "SSS/SAS/ASA/AAS congruence and AA/SAS/SSS similarity, the fact that area ratio equals the square of the side ratio, and setting up proportions directly from a diagram."
         },
         {
           "track": "comb",
           "trackLabel": "Combinatorics",
           "title": "Probability Review",
-          "when": "Sun, Sep 20, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sun, Sep 20, 2026, 11:00 AM - 12:00 PM ET",
           "description": "The favorable-over-total framework, independent vs. dependent events, and complementary probability, folding in the counting tools from Weeks 0-1 rather than treating probability as a separate subject."
         },
         {
           "track": "nt",
           "trackLabel": "Number Theory",
           "title": "Factors and Prime Number Thinking",
-          "when": "Sun, Sep 20, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sun, Sep 20, 2026, 12:30 - 1:30 PM ET",
           "description": "Prime factorization as the master tool, the divisor-count formula, and the sum-of-divisors formula, used to answer \"how many/which factors\" questions quickly."
         }
       ]
@@ -135,35 +135,35 @@
           "track": "all",
           "trackLabel": "All Tracks",
           "title": "Week 3 Test Review",
-          "when": "Wed, Sep 23, 2026, 5:00 - 6:00 PM EST",
+          "when": "Wed, Sep 23, 2026, 5:00 - 6:00 PM ET",
           "description": "Review the week's practice test."
         },
         {
           "track": "alg",
           "trackLabel": "Algebra",
           "title": "Inequalities: Basic Intuitions & Rules, AM-GM",
-          "when": "Sat, Sep 26, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sat, Sep 26, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Rules for manipulating inequalities, including the sign flip on multiplying by a negative; the AM-GM inequality and its equality condition; and using AM-GM to bound sums and products in optimization-flavored problems."
         },
         {
           "track": "geo",
           "trackLabel": "Geometry",
           "title": "Coordinate Geometry",
-          "when": "Sat, Sep 26, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sat, Sep 26, 2026, 12:30 - 1:30 PM ET",
           "description": "Distance and midpoint formulas, slope and line equations, intersecting lines and circles algebraically, and a range of problems solved through coordinate geometry."
         },
         {
           "track": "comb",
           "trackLabel": "Combinatorics",
           "title": "Counting with Restrictions, Complement, Arrangements",
-          "when": "Sun, Sep 27, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sun, Sep 27, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Adjacent and non-adjacent restrictions, handling \"at least one\" via complement, circular permutations, and arrangements with repeated elements."
         },
         {
           "track": "nt",
           "trackLabel": "Number Theory",
           "title": "Divisibility",
-          "when": "Sun, Sep 27, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sun, Sep 27, 2026, 12:30 - 1:30 PM ET",
           "description": "Divisibility inside factorials and products, using divisibility to pin down unknown digits, and combining these with Week 1's modular arithmetic."
         }
       ]
@@ -178,35 +178,35 @@
           "track": "all",
           "trackLabel": "All Tracks",
           "title": "Week 4 Problem Solving Session",
-          "when": "Wed, Sep 30, 2026, 5:00 - 6:00 PM EST",
+          "when": "Wed, Sep 30, 2026, 5:00 - 6:00 PM ET",
           "description": "Solve various problems and review techniques."
         },
         {
           "track": "alg",
           "trackLabel": "Algebra",
           "title": "Sequences 01",
-          "when": "Sat, Oct 3, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sat, Oct 3, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Arithmetic and geometric sequence formulas for the nth term and the sum, telling the two types apart quickly, and a first look at simple recursive definitions."
         },
         {
           "track": "geo",
           "trackLabel": "Geometry",
           "title": "Area Deep Dive",
-          "when": "Sat, Oct 3, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sat, Oct 3, 2026, 12:30 - 1:30 PM ET",
           "description": "Area by decomposition and addition/subtraction, the full shoelace formula, shared base/height area-ratio tricks, Heron's formula, trapezoid area, and coordinate-based area intuition."
         },
         {
           "track": "comb",
           "trackLabel": "Combinatorics",
           "title": "Logic Problems Deep Dive",
-          "when": "Sun, Oct 4, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sun, Oct 4, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Truth-teller/liar puzzles, deductive reasoning, truth tables and implications, and the general language of logical statements."
         },
         {
           "track": "nt",
           "trackLabel": "Number Theory",
           "title": "Digits and Decimal Representation",
-          "when": "Sun, Oct 4, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sun, Oct 4, 2026, 12:30 - 1:30 PM ET",
           "description": "Digit-sum and mod-9 tricks, place-value algebra for digit word problems, and converting repeating decimals to fractions."
         }
       ]
@@ -221,35 +221,35 @@
           "track": "all",
           "trackLabel": "All Tracks",
           "title": "Week 5 Test Review",
-          "when": "Wed, Oct 7, 2026, 5:00 - 6:00 PM EST",
+          "when": "Wed, Oct 7, 2026, 5:00 - 6:00 PM ET",
           "description": "Review the week's practice test."
         },
         {
           "track": "alg",
           "trackLabel": "Algebra",
           "title": "Polynomials and Vieta",
-          "when": "Sat, Oct 10, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sat, Oct 10, 2026, 11:00 AM - 12:00 PM ET",
           "description": "The definition of a polynomial, Vieta's formulas relating coefficients to the sum and product of roots, building symmetric root-expressions without solving for the roots, the factor and remainder theorems, and graphical thinking about polynomials."
         },
         {
           "track": "geo",
           "trackLabel": "Geometry",
           "title": "Similarity, Congruency, Area Revisited",
-          "when": "Sat, Oct 10, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sat, Oct 10, 2026, 12:30 - 1:30 PM ET",
           "description": "Using similarity, congruency, and area techniques together, chaining Week 2's similarity with Week 4's area methods in single problems; this is the \"put it all together\" week for geometry."
         },
         {
           "track": "comb",
           "trackLabel": "Combinatorics",
           "title": "Stars & Bars, Principle of Inclusion-Exclusion, Recursion in Counting",
-          "when": "Sun, Oct 11, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sun, Oct 11, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Stars and bars for distributing identical objects into distinct bins, PIE for two- and three-set overlaps and the general alternating-sum pattern, and building a count from smaller cases by setting up and solving a recursive sequence."
         },
         {
           "track": "nt",
           "trackLabel": "Number Theory",
           "title": "Diophantine Equations and Bounding Techniques",
-          "when": "Sun, Oct 11, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sun, Oct 11, 2026, 12:30 - 1:30 PM ET",
           "description": "Finding integer-only solutions by factoring into a finite set of cases, using parity and inequalities to bound variables, and moving from \"compute an answer\" to \"prove no other solutions exist.\""
         }
       ]
@@ -264,35 +264,35 @@
           "track": "all",
           "trackLabel": "All Tracks",
           "title": "Week 6 Problem Solving Session",
-          "when": "Wed, Oct 14, 2026, 5:00 - 6:00 PM EST",
+          "when": "Wed, Oct 14, 2026, 5:00 - 6:00 PM ET",
           "description": "Solve various problems and review techniques."
         },
         {
           "track": "alg",
           "trackLabel": "Algebra",
           "title": "Mean, Median, Mode, Data",
-          "when": "Sat, Oct 17, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sat, Oct 17, 2026, 11:00 AM - 12:00 PM ET",
           "description": "How each statistic shifts under data changes, weighted averages, solving for an unknown data point given a target average, and a range of problems that involve these statistics."
         },
         {
           "track": "geo",
           "trackLabel": "Geometry",
           "title": "Circle Geometry",
-          "when": "Sat, Oct 17, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sat, Oct 17, 2026, 12:30 - 1:30 PM ET",
           "description": "Power of a point, tangent-line properties, arc length and sector area, tying back to Week 1's inscribed-angle toolkit."
         },
         {
           "track": "comb",
           "trackLabel": "Combinatorics",
           "title": "Probability Deep Dive",
-          "when": "Sun, Oct 18, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sun, Oct 18, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Conditional probability, geometric probability as a length/area ratio, and probability problems that need casework or PIE from Week 5."
         },
         {
           "track": "nt",
           "trackLabel": "Number Theory",
           "title": "Divisors, Perfect Powers, Factorials",
-          "when": "Sun, Oct 18, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sun, Oct 18, 2026, 12:30 - 1:30 PM ET",
           "description": "Conditions for an expression to be a perfect square or cube, factorial prime factorization and Legendre's formula for trailing zeros, combining with Week 2's divisor-count formula, and thinking through prime factors when working with perfect powers and factorials."
         }
       ]
@@ -307,35 +307,35 @@
           "track": "all",
           "trackLabel": "All Tracks",
           "title": "Week 7 Test Review",
-          "when": "Wed, Oct 21, 2026, 5:00 - 6:00 PM EST",
+          "when": "Wed, Oct 21, 2026, 5:00 - 6:00 PM ET",
           "description": "Review the week's practice test."
         },
         {
           "track": "alg",
           "trackLabel": "Algebra",
           "title": "Theory Review and Gauss Sums",
-          "when": "Sat, Oct 24, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sat, Oct 24, 2026, 11:00 AM - 12:00 PM ET",
           "description": "A cumulative review of everything covered in previous algebra lectures, plus Gauss sums and the ideas that come up around them."
         },
         {
           "track": "geo",
           "trackLabel": "Geometry",
           "title": "3D Geometry and Theory Review",
-          "when": "Sat, Oct 24, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sat, Oct 24, 2026, 12:30 - 1:30 PM ET",
           "description": "Volume and surface area of prisms, pyramids, cones, and spheres; the space diagonal via 3D Pythagoras; cross-sections of solids; then a cumulative review pass over all geometry theory learned so far."
         },
         {
           "track": "comb",
           "trackLabel": "Combinatorics",
           "title": "Theory Review, Simple Patterns, Greedy Maximization",
-          "when": "Sun, Oct 25, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sun, Oct 25, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Recognizing simple patterns in problems, an introduction to greedy maximization, and a cumulative review of the counting and probability tools covered so far."
         },
         {
           "track": "nt",
           "trackLabel": "Number Theory",
           "title": "Theory Review",
-          "when": "Sun, Oct 25, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sun, Oct 25, 2026, 12:30 - 1:30 PM ET",
           "description": "A cumulative review of modular arithmetic, divisibility, primes and factorization, digits, and Diophantine/bounding techniques, using mixed problems that force the right choice of tool."
         }
       ]
@@ -350,35 +350,35 @@
           "track": "all",
           "trackLabel": "All Tracks",
           "title": "Week 8 Problem Solving Session",
-          "when": "Wed, Oct 28, 2026, 5:00 - 6:00 PM EST",
+          "when": "Wed, Oct 28, 2026, 5:00 - 6:00 PM ET",
           "description": "Solve various problems and review techniques."
         },
         {
           "track": "alg",
           "trackLabel": "Algebra",
           "title": "Algebra Problem-Solving Bootcamp",
-          "when": "Sat, Oct 31, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sat, Oct 31, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Recognizing the theory behind each problem and working to solve it quickly."
         },
         {
           "track": "geo",
           "trackLabel": "Geometry",
           "title": "Geometry Problem-Solving Bootcamp",
-          "when": "Sat, Oct 31, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sat, Oct 31, 2026, 12:30 - 1:30 PM ET",
           "description": "Recognizing the theory behind each problem and working to solve it quickly."
         },
         {
           "track": "comb",
           "trackLabel": "Combinatorics",
           "title": "Combinatorics Problem-Solving Bootcamp",
-          "when": "Sun, Nov 1, 2026, 11:00 AM - 12:00 PM EST",
+          "when": "Sun, Nov 1, 2026, 11:00 AM - 12:00 PM ET",
           "description": "Recognizing the theory behind each problem and working to solve it quickly."
         },
         {
           "track": "nt",
           "trackLabel": "Number Theory",
           "title": "Number Theory Problem-Solving Bootcamp",
-          "when": "Sun, Nov 1, 2026, 12:30 - 1:30 PM EST",
+          "when": "Sun, Nov 1, 2026, 12:30 - 1:30 PM ET",
           "description": "Recognizing the theory behind each problem and working to solve it quickly."
         }
       ]
