@@ -3,23 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Get 100 | AMC 10 Score-100 Program</title>
-<meta name="description" content="An 8-week live program built around one number: 100 on the AMC 10. September 9 to November 1, 2026. 30 students.">
+<title>Get 100 | 8-Week AMC 10 Program, Sep to Nov 2026</title>
+<meta name="description" content="An 8-week live program built around one number: 100 on the AMC 10. Four parallel tracks, 40 live sessions, 30 students. September 9 to November 1, 2026.">
 <link rel="canonical" href="https://www.amc10camp.com">
-<meta property="og:title" content="Get 100 | AMC 10 Score-100 Program">
-<meta property="og:description" content="An 8-week live program built around one number: 100 on the AMC 10. September 9 to November 1, 2026. 30 students.">
+<meta property="og:title" content="Get 100 | 8-Week AMC 10 Program, Sep to Nov 2026">
+<meta property="og:description" content="100 on the AMC 10 is seventeen questions, not twenty-five. Eight weeks, four tracks, 30 students. Ends four days before AMC 10 A.">
 <meta property="og:url" content="https://www.amc10camp.com">
 <meta property="og:type" content="website">
-<!-- TODO: og:image (1200x630 social card). Suggest the goal-line meter graphic + "Get 100" wordmark. -->
+<!-- TODO: og:image (1200x630 social card). The goal-line meter graphic + "Get 100" wordmark. -->
 
-<!-- TODO: FONTS - these are my stand-ins for the ShefMath faces. Replace with whatever
-     the Figma file actually uses. Baloo 2 is rounded/chunky to sit with 3D pill buttons;
-     Inter for body because parents read a lot of text here; mono for every numeral. -->
+<!-- TODO: FONTS - stand-ins for the ShefMath faces. Replace with whatever the Figma file uses. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=1">
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Course",
+  "name":"Get 100: AMC 10 Program",
+  "description":"An eight-week live online program for AMC 10 students targeting a score above 100. Four parallel tracks, 40 live sessions, capped at 30 students.",
+  "provider":{"@type":"Organization","name":"Shef Scholars","url":"https://www.amc10camp.com"},
+  "hasCourseInstance":{
+    "@type":"CourseInstance",
+    "courseMode":"online",
+    "startDate":"2026-09-09",
+    "endDate":"2026-11-01",
+    "maximumAttendeeCapacity":30
+  },
+  "offers":{"@type":"Offer","price":"180","priceCurrency":"USD","availability":"https://schema.org/InStock"}
+}
+</script>
 </head>
 <body>
 
@@ -27,6 +44,7 @@
   <div class="wrap hdr__in">
     <a class="brand" href="#top">Get<span>100</span></a>
     <nav class="hdr__links">
+      <a href="#fit">Is it a fit?</a>
       <a href="#tracks">Tracks</a>
       <a href="#included">What's included</a>
       <a href="#schedule">Schedule</a>
@@ -41,11 +59,11 @@
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Live online &middot; Sep 9 - Nov 1, 2026 &middot; 30 students</p>
-    <h1>The AMC 10 is out of 150.<br>This program is built around getting you past <span>100</span>.</h1>
+    <p class="eyebrow">Live online &middot; Sep 9 to Nov 1, 2026 &middot; 30 students &middot; Ends 4 days before AMC 10 A</p>
+    <h1>The AMC 10 is out of 150.<br>This program is built around one number: <span>100</span>.</h1>
     <p class="hero__lede">
-      Eight weeks of live instruction across four tracks, built around a single number.
-      Not forty hours of lectures. A score.
+      That is seventeen questions out of twenty-five. Not all of them. Seventeen, plus
+      knowing which of the rest to leave alone. Eight weeks, four tracks, one target.
     </p>
 
     <div class="meter meter__wrap" id="heroMeter">
@@ -64,9 +82,9 @@
 
     <div class="hero__cta">
       <a class="btn" href="#pricing">Join the Early Bird Cohort</a>
-      <p class="hero__price num">
-        <b>$180</b> camp &nbsp;·&nbsp; <b>$630</b> with mentorship
-      </p>
+    <p class="hero__price num" data-regular="<b>$240</b> camp &nbsp;·&nbsp; <b>$720</b> with mentorship">
+      <b>$180</b> camp &nbsp;·&nbsp; <b>$630</b> with mentorship
+    </p>
     </div>
   </div>
 </section>
@@ -74,135 +92,203 @@
 <!-- ================= CREDENTIALS ================= -->
 <section class="wrap">
   <div class="creds rise">
-    <div><b class="num">3&times;</b><small>IMO Bronze Medalist, coaching this cohort personally</small></div>
-    <div><b class="num">4</b><small>Parallel tracks: Algebra, Geometry, Combinatorics, Number Theory</small></div>
+    <div><b class="num">3&times;</b><small>IMO Bronze Medalist, teaching every session in this cohort myself</small></div>
+    <div><b class="num">8</b><small>Students coached to the International Mathematical Olympiad through Shef Scholars</small></div>
     <div><b class="num">40</b><small>Live sessions: 32 topic lectures + 8 review and problem-solving</small></div>
-    <div><b class="num">30</b><small>Seats total, so every student gets attention</small></div>
+    <div><b class="num">30</b><small>Seats in the cohort, so every student gets attention</small></div>
   </div>
 </section>
 
-<!-- ================= THE PROBLEM ================= -->
+<!-- ================= WHAT 100 ACTUALLY TAKES ================= -->
 <section class="band">
   <div class="wrap split">
     <div class="rise">
-      <p class="eyebrow">Why most preparation stalls</p>
-      <h2>Knowing the topic is not the same as finishing the problem.</h2>
+      <p class="eyebrow">Start here</p>
+      <h2>One hundred is seventeen questions. Not twenty-five.</h2>
       <p class="lede">
-        Most students who plateau around 70 or 80 aren't missing theory. They're missing
-        the move that turns a familiar setup into a finished answer in ninety seconds.
+        The AMC 10 gives 6 points for a correct answer, 1.5 points for a question left
+        blank, and nothing for a wrong one. Sixteen right with three left blank clears
+        100. So does seventeen right. Either way, eight questions on that paper are
+        not your problem.
       </p>
-<p class="lede">
-  This program teaches the theory in four dedicated tracks, then spends every
-  remaining hour on problems, under time, drilling the moves that turn theory
-  into a finished answer.
-</p>
+
+      <div class="scoremath">
+        <div><b class="num">6</b><small>points, correct answer</small></div>
+        <div><b class="num">1.5</b><small>points, left blank</small></div>
+        <div><b class="num">0</b><small>points, wrong answer</small></div>
+      </div>
+
+      <p class="lede">
+        Most students sitting in the 60s and 70s are not missing theory. They are
+        spending eleven minutes on question 22 and never reaching question 14. This
+        program works on both halves: the theory that earns the seventeen, and the
+        judgment about where the other fifty-eight minutes go.
+      </p>
     </div>
-    <!-- TODO: replace with a real handout screenshot. Suggest a page of
-         "Factoring Identities and Symmetric Expressions" with visible worked solution. -->
-<div class="shot rise" style="aspect-ratio:1/1">
-  <img src="images/part_of_handout.png" alt="Algebra Handout" style="width:100%; height:100%; object-fit:cover;">
-</div>  </div>
+    <div class="shot rise" style="aspect-ratio:1/1">
+      <img src="images/part_of_handout.png" alt="Page from the Factoring, Identities and Symmetric Expressions handout" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHO THIS IS FOR ================= -->
+<section class="band band--soft" id="fit">
+  <div class="wrap">
+    <p class="eyebrow">Before you pay</p>
+    <h2>Who this is for, and who it isn't.</h2>
+    <p class="lede">
+      I would rather you read this and close the tab than enroll into the wrong room.
+      If you are between the two columns, book a call and I will tell you honestly.
+    </p>
+
+    <div class="fitgrid rise">
+      <div class="fit fit--yes">
+        <h3>This is built for your child if</h3>
+        <ul>
+          <li>They have scored roughly 40 to 90 on a recent AMC 10, real or practice.</li>
+          <li>Or they have never sat the AMC 10, but are comfortable with Algebra 1 and basic geometry.</li>
+          <li>They finished our summer Basics camp and want the rest of the paper, not just problems 1 to 8.</li>
+          <li>They are in grade 10 or below and under 17.5 years old on competition day, which is what the MAA requires to sit the AMC 10.</li>
+          <li>They can commit to about five hours of live class a week for eight weeks.</li>
+        </ul>
+      </div>
+      <div class="fit fit--no">
+        <h3>This is the wrong room if</h3>
+        <ul>
+          <li>They are already scoring above 110. You would be paying me to move too slowly. Email me and I will point you somewhere better.</li>
+          <li>They have not finished pre-algebra. Week 0 assumes fractions, negatives, and basic exponents already work.</li>
+          <li>You want a guaranteed number. Nobody can sell you that, and I say so plainly further down this page.</li>
+          <li>Weekends are already full. The lectures are Saturday and Sunday mornings, and recordings are a backup, not a plan.</li>
+          <li>Camera-on is not something you are comfortable with. This is taught as a live conversation, not a broadcast, and every session is recorded and shared with the other enrolled families.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= FOUR TRACKS ================= -->
-<section class="band band--soft" id="tracks">
+<section class="band" id="tracks">
   <div class="wrap">
     <p class="eyebrow">The structure</p>
     <h2>Four tracks, running in parallel.</h2>
     <p class="lede" style="margin-bottom:44px">
-      Every AMC 10 is built from the same four areas. So is this camp. You work all
-      four every week instead of finishing one and forgetting it by November.
+      Every AMC 10 is built from the same four areas. So is this program. Your child
+      works all four every single week, instead of finishing one in September and
+      having forgotten it by November.
     </p>
+    <!-- TODO: the question counts below are estimates. Replace them with the real
+         numbers from your 2010-2025 AMC 10 coverage map, and set --tw on each bar
+         to match (share of 25 questions). You already have this data. -->
     <div class="grid grid--4">
       <div class="card track track--alg rise">
         <span class="track__tag">Track 01</span>
         <h3>Algebra</h3>
-        <p>Factoring and symmetric expressions, telescoping and systems, inequalities and AM-GM, sequences, polynomials and Vieta's formulas, and statistics, building to a full theory review before the bootcamp.</p>
-        <div class="track__bar" style="--tw:100%"><i></i></div>
+        <p>Factoring and symmetric expressions. Telescoping, systems, exponents. Inequalities and AM-GM. Sequences. Polynomials and Vieta. Mean, median and data.</p>
+        <p>The biggest single block on the paper, and the one where speed compounds fastest.</p>
+        <!-- <span class="track__meta">Typically 7 to 9 of 25 questions</span>
+        <div class="track__bar" style="--tw:32%"><i></i></div> -->
       </div>
       <div class="card track track--geo rise">
         <span class="track__tag">Track 02</span>
         <h3>Geometry</h3>
-        <p>Angle chasing, similarity and congruency, coordinate geometry, area techniques, circle geometry, and 3D geometry, building to a full theory review before the bootcamp.</p>
-        <div class="track__bar" style="--tw:100%"><i></i></div>
+        <p>Angle chasing in circles. Similarity and congruency. Coordinate geometry. Area by decomposition, shoelace and ratios. Circle geometry. 3D solids.</p>
+        <p>Where students burn the most minutes per point, usually by not drawing the auxiliary line.</p>
+        <!-- <span class="track__meta">Typically 5 to 7 of 25 questions</span>
+        <div class="track__bar" style="--tw:24%"><i></i></div> -->
       </div>
       <div class="card track track--comb rise">
         <span class="track__tag">Track 03</span>
         <h3>Combinatorics</h3>
-        <p>Smart casework, probability, restrictions and complementary counting, logic puzzles, stars and bars, PIE, and recursive counting, building to a full theory review before the bootcamp.</p>
-        <div class="track__bar" style="--tw:100%"><i></i></div>
+        <p>Smart casework. Probability. Restrictions and complementary counting. Logic problems. Stars and bars, inclusion-exclusion, recursion.</p>
+        <p>The area where a wrong setup in the first thirty seconds costs you the whole problem.</p>
+        <!-- <span class="track__meta">Typically 4 to 6 of 25 questions</span>
+        <div class="track__bar" style="--tw:20%"><i></i></div> -->
       </div>
       <div class="card track track--nt rise">
         <span class="track__tag">Track 04</span>
         <h3>Number Theory</h3>
-        <p>Modular arithmetic, prime factorization, divisibility, digit problems, Diophantine equations and bounding, and factorial number theory, building to a full theory review before the bootcamp.</p>
-        <div class="track__bar" style="--tw:100%"><i></i></div>
+        <p>Modular arithmetic. Factors and prime thinking. Divisibility. Digits and decimal representation. Diophantine equations and bounding. Divisors and factorials.</p>
+        <p>The smallest block, and the most learnable from scratch inside eight weeks.</p>
+        <!-- <span class="track__meta">Typically 3 to 5 of 25 questions</span>
+        <div class="track__bar" style="--tw:16%"><i></i></div> -->
       </div>
     </div>
   </div>
 </section>
 
 <!-- ================= WEEK 0 ================= -->
-<section class="band">
+<section class="band band--soft">
   <div class="wrap split">
-    <!-- TODO: handout screenshot, ideally a Week 0 foundation module page. -->
-<div class="shot rise" style="aspect-ratio:1/1">
-  <img src="images/part_of_num_of_nums_handout.png" alt="Combinatorics Handout Week 0" style="width:100%; height:100%; object-fit:cover;">
-</div>  
+    <div class="shot rise" style="aspect-ratio:1/1">
+      <img src="images/part_of_num_of_nums_handout.png" alt="Page from the Week 0 Combinatorics foundations module" style="width:100%; height:100%; object-fit:cover;">
+    </div>
 
-<div class="rise">
-<p class="eyebrow">Week 0 &middot; assigned by Aug 25 &middot; due before Sep 12</p>
-<h2>Everyone starts level, no matter where they're coming from.</h2>
+    <div class="rise">
+      <p class="eyebrow">Week 0 &middot; sent by Aug 25 &middot; due before Sep 12</p>
+      <h2>Everyone starts level, wherever they're coming from.</h2>
+      <p class="lede">
+        Part of this cohort came through our Basics camp this summer. Part of it did not.
+        Week 0 is four self-study foundation modules, one per track, covering the
+        arithmetic, angle rules, counting fundamentals and divisibility tests that every
+        later lecture quietly assumes. Nobody spends September catching up in public.
+      </p>
 <p class="lede">
-  Part of this cohort went through our Basics camp this summer. Some didn't.
-  Week 0 is a set of self-study foundation modules across all four tracks,
-  so nobody spends September catching up in public.
-</p>
-<p class="lede">
-  Modules go out by August 25, ahead of the camp start, so every student
-  has real runway to work through them before Week 1.
-</p>
+        Modules go out from August 25, and within 48 hours of enrolling if you join after
+        that. They are due before the first lecture on September 12. They are not graded and
+        they are not busywork. They are the floor.
+      </p>
     </div>
   </div>
 </section>
 
 <!-- ================= WHAT'S INCLUDED ================= -->
-<section class="band band--soft" id="included">
+<section class="band" id="included">
   <div class="wrap">
     <p class="eyebrow">What you get</p>
     <h2>The complete program.</h2>
     <ul class="incl rise" style="margin-top:40px">
-      <li><b class="num">32</b><span>Live topic lectures<em>Two on Saturday, two on Sunday, every week</em></span></li>
-      <li><b class="num">8</b><span>Wednesday sessions, 5:00-6:00 p.m. EST<em>Alternating practice-test review and problem-solving workshop</em></span></li>
+      <li><b class="num">32</b><span>Live topic lectures<em>Saturdays 11:00 and 12:30, Sundays 11:00 and 12:30, New York time</em></span></li>
+      <li><b class="num">8</b><span>Wednesday sessions, 5:00 to 6:00 p.m. New York time<em>Alternating practice-test review and open problem-solving</em></span></li>
+      <!-- TODO: confirm this line. Your schedule.json has four "review the week's practice
+           test" Wednesdays, which implies four tests exist and are distributed. If you are
+           not shipping the tests themselves, reword this to "four test review sessions". -->
+      <li><b class="num">4</b><span>Full practice tests, each with its own review session<em>The first one is on September 9, before a single lecture, so we both know the starting number</em></span></li>
       <li><b class="num">4</b><span>Week 0 foundation modules<em>One per track, self-study, due before Sep 12</em></span></li>
-      <!-- <li><b class="num">·</b><span>Weekly homework with feedback<em>Submitted work comes back marked, not just answered</em></span></li> -->
-      <li><b class="num">·</b><span>Handouts for every lecture<em>Theory summary, worked examples, problem set</em></span></li>
-      <li><b class="num">·</b><span>Recordings of every session<em>Kept for the full length of the camp</em></span></li>
+      <li><b class="num">·</b><span>A handout for every lecture<em>Theory, worked examples, and an AMC problem set with full solutions</em></span></li>
+      <li><b class="num">·</b><span>Recordings of every session<em>Available through December 31, so they are still there for both AMC dates</em></span></li>
     </ul>
+    <!-- TODO: extending recordings to Dec 31 was my recommendation, not your existing
+         policy. It costs you nothing and covers both Nov 5 and Nov 13. Change if you disagree. -->
   </div>
 </section>
 
 <!-- ================= COACH ================= -->
 <section class="band band--soft">
   <div class="wrap split">
-    <!-- TODO: your headshot. The one on the current site is fine, reuse it. -->
-<div class="shot rise" style="aspect-ratio:1/1">
-  <img src="images/LagumdzijaZlatko-Salko_480.jpg" alt="Coach headshot" style="width:100%; height:100%; object-fit:cover;">
-</div>
+    <div class="shot rise" style="aspect-ratio:1/1">
+      <img src="images/LagumdzijaZlatko-Salko_480.jpg" alt="Albert Lagumdzija, coach" style="width:100%; height:100%; object-fit:cover;">
+    </div>
 
-<div class="rise">
+    <div class="rise">
       <p class="eyebrow">Your coach</p>
       <h2>I'm teaching this one myself.</h2>
       <p class="lede">
         I'm a three-time IMO Bronze Medalist, a Brown graduate, and a Schwarzman Scholar
         from Tsinghua. I've spent ten years competing in and teaching this material, and I
-        run one of the largest competitive math channels on YouTube.
+        run <a href="https://www.youtube.com/c/ShefsofProblemSolving" target="_blank" rel="noopener">Shefs of Problem Solving</a>,
+        one of the biggest competitive math channels on YouTube.
       </p>
       <p class="lede">
-        I cap this cohort at 30 students so I can actually interact with most
-        of them during live sessions, not just talk at a screen.
+        Through Shef Scholars I've helped at least eight students reach the International
+        Mathematical Olympiad. This program is not that. This is the eight weeks that take
+        a student from the middle of the AMC 10 to past 100, and the reason I mention the
+        eight is simply that I have watched a lot of students climb, and I know what the
+        climb from 70 looks like from the inside.
       </p>
-      <!-- TODO: link the YouTube channel. -->
+      <p class="lede">
+        I cap this cohort at 30 so I can actually interact with most of them during live
+        sessions instead of talking at a screen.
+      </p>
     </div>
   </div>
 </section>
@@ -210,16 +296,26 @@
 <!-- ================= TESTIMONIALS ================= -->
 <section class="band">
   <div class="wrap">
-    <p class="eyebrow">From the summer cohort</p>
-    <h2>What parents said.</h2>
-    <!-- TODO: replace all three with parent testimonials from the feedback form.
-         Do NOT reuse the Olympiad quotes from the old site: a parent aiming for 100
-         reads "qualified for Iberoamerican" and assumes their kid will drown.
-         Use the credit line each parent selected on the form. -->
+    <p class="eyebrow">From our summer AMC 10 camp</p>
+    <h2>What families said.</h2>
+    <p class="lede">
+      These are from the summer program, not from this one. This cohort is the first
+      Get 100 group to run, which is part of why it is priced the way it is.
+    </p>
     <div class="quotes rise" style="margin-top:40px">
-      <div class="quote"><p>TODO: parent testimonial 1.</p>TODO: credit line</div>
-      <div class="quote"><p>TODO: parent testimonial 2.</p>TODO: credit line</div>
-      <div class="quote"><p>TODO: parent testimonial 3.</p>TODO: credit line</div>
+      <div class="quote">
+        <p>I liked the small group setting, which helps students to be able to
+        participate and interact with the instructor throughout the class. This course
+        will help your child build the theoretical foundations and strategies in
+        solving math problems.</p>
+        <cite> Parent of a summer 2026 student </cite>
+      </div>
+      <div class="quote">
+        <p>I was not able to understand polynomials, and I learned cool techniques for
+        solving and graphing them. I've been confused before on how to solve them, but
+        now it's clear for me.</p>
+        <cite>Ciana P., student, summer 2026</cite>
+      </div>
     </div>
   </div>
 </section>
@@ -227,87 +323,173 @@
 <!-- ================= SCHEDULE (data from schedule.json) ================= -->
 <section class="band band--soft" id="schedule">
   <div class="wrap">
-    <p class="eyebrow">Sep 9 - Nov 1, 2026 &middot; all times EST</p>
-    <h2>Eight weeks.</h2>
+    <p class="eyebrow">Sep 9 to Nov 1, 2026 &middot; all times New York</p>
+    <h2>Six weeks of building. Two weeks of sharpening.</h2>
     <p class="lede" style="margin-bottom:40px">
-      Two lectures Saturday, two Sunday, plus a Wednesday session from 5:00 to 6:00 p.m.
-      Pick a week below.
+      Weeks 1 through 6 add new theory in all four tracks at once. Week 7 pulls the whole
+      thing back together in a cumulative review. Week 8 is nothing but problems, four
+      bootcamps, no new material, five days before the exam. Pick a week for the full topic list.
     </p>
     <div class="sched-tabs rise" id="sched-tabs"></div>
     <div id="sched-panel" class="rise">
       <p class="lede">Loading schedule...</p>
     </div>
+    <noscript>
+      <p class="lede">
+        The week-by-week breakdown needs JavaScript. Email
+        <a href="mailto:marketing@shefscholars.com">marketing@shefscholars.com</a>
+        and I will send the full syllabus as a PDF.
+      </p>
+    </noscript>
+
+    <div class="note rise">
+      <h3>One note on clocks</h3>
+      <p>
+        The United States moves off daylight time on Sunday, November 1, which is the
+        morning of our final two sessions. Every session from September 9 through
+        October 25 runs on New York daylight time. The last two, on November 1, run on
+        New York standard time. I will email a reminder that week. If you are outside
+        the US, check your own conversion for that weekend specifically.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXAM LOGISTICS ================= -->
+<section class="band">
+  <div class="wrap">
+    <p class="eyebrow">Important, and easy to get wrong</p>
+    <h2>Two exam dates. You register separately, and early.</h2>
+
+    <div class="datepair rise">
+      <div><b class="num">Nov 5, 2026</b><small>AMC 10 A. Four days after our final session.</small></div>
+      <div><b class="num">Nov 13, 2026</b><small>AMC 10 B. A different paper. Students may sit both.</small></div>
+    </div>
+
+    <p class="lede">
+      This program is scheduled to finish right before the A date, with recordings and
+      handouts still open through the B date.
+    </p>
+
+    <div class="note rise">
+      <h3>Please do this in September, not October</h3>
+      <p>
+        Families cannot register for the AMC 10 directly with the MAA. Your child sits it
+        through their school or through an authorized testing center, and registration at
+        those sites typically closes two to three weeks before the competition. Popular
+        centers fill earlier than that.
+      </p>
+      <p>
+        Enrolling here does not register your child for the exam. If your school does not
+        host the AMC 10 and you are not sure where to look, book a call and I will help
+        you find a site. This is the single most common way a well-prepared student ends
+        up with nowhere to sit in November.
+      </p>
+    </div>
   </div>
 </section>
 
 <!-- ================= PRICING ================= -->
-<section class="band" id="pricing">
+<!-- ================= PRICING ================= -->
+<section class="band band--soft" id="pricing">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:44px">
+    <div style="text-align:center;margin-bottom:20px">
       <p class="eyebrow">Enrollment</p>
       <h2>Two ways to join.</h2>
     </div>
+    <p class="lede" style="text-align:center;margin-inline:auto;margin-bottom:44px">
+      Thirty seats in the cohort. Six of them can add weekly one-on-one coaching.
+    </p>
 
     <div class="pricing-grid rise">
 
       <div class="price">
-        <span class="price__badge">Early Bird &middot; Camp</span>
+        <span class="price__badge" data-regular="Camp">Early Bird &middot; Camp</span>
 
-        <div class="countdown" id="countdown">
-          <span class="countdown__label" id="cd-label">Early bird ends in</span>
-          <div class="countdown__nums">
-            <div><b id="cd-d">00</b><small>days</small></div>
-            <div><b id="cd-h">00</b><small>hrs</small></div>
-            <div><b id="cd-m">00</b><small>min</small></div>
-            <div><b id="cd-s">00</b><small>sec</small></div>
+        <div class="countdown" data-countdown>
+          <span class="countdown__label" data-cd-label>Early bird ends in</span>
+          <div class="countdown__nums" data-cd-nums>
+            <div><b data-cd="d">00</b><small>days</small></div>
+            <div><b data-cd="h">00</b><small>hrs</small></div>
+            <div><b data-cd="m">00</b><small>min</small></div>
+            <div><b data-cd="s">00</b><small>sec</small></div>
           </div>
         </div>
 
-        <div class="price__big num">$180</div>
+        <div class="price__big num" data-regular="$240">$180</div>
         <p class="price__alt">The full program, paid once</p>
 
-        <!-- TODO: Stripe Payment Link for the $180 camp. Set a seat cap of 30
-             on the link itself. Success URL should redirect to the student
-             intake Google Form. -->
-        <a class="btn btn--wide" href="#">Enroll &middot; $180</a>
+        <!-- TODO: 
+
+
+             Both success URLs point at the student intake Google Form. -->
+
+
+             <!-- Stripe: early bird $180 and regular $240. Both capped at 30. -->
+        <a class="btn btn--wide" href="PASTE_180_LINK" data-regular="Enroll &middot; $240" data-regular-href="PASTE_240_LINK">Enroll &middot; $180</a>
+
 
         <div class="seats">
-          <!-- TODO: update --taken and the seat count below as seats fill. 0/30 at launch. -->
+          <!-- TODO: update --taken and the count below as seats fill. 0/30 at launch.
+               If you are not going to update this by hand, delete the whole .seats block.
+               A bar frozen at zero in October is worse than no bar. -->
           <div class="seats__bar" style="--taken:0%"><i></i></div>
-          <p class="seats__txt">0 of 30 seats taken</p>
+          <p class="seats__txt">0 of 30 camp seats taken</p>
         </div>
 
         <ul>
           <li>All 40 live sessions</li>
+          <li>4 practice tests with review sessions</li>
           <li>Week 0 foundation modules</li>
-<li>Handouts with solutions for every lecture</li>
-          <li>Recordings of every session</li>
+          <li>Handouts with full solutions for every lecture</li>
+          <li>Recordings through December 31</li>
         </ul>
 
         <p class="price__next">
-          Early bird pricing ends August 21, 2026. Regular price is $270.
+          Early bird pricing ends August 21, 2026. It goes to $240 after that.
         </p>
       </div>
 
       <div class="price">
-        <span class="price__badge">Mentorship &middot; 6 seats</span>
-        <div class="price__big num">$630</div>
-        <p class="price__alt">Camp + private coaching, paid once</p>
+        <span class="price__badge" data-regular="Mentorship &middot; 6 seats">Early Bird &middot; Mentorship</span>
 
-        <!-- TODO: Stripe Payment Link for the $630 Mentorship package.
-             Set a quantity cap of 6 on the link itself. -->
-        <a class="btn btn--wide" href="#">Enroll &middot; $630</a>
+        <div class="countdown" data-countdown>
+          <span class="countdown__label" data-cd-label>Early bird ends in</span>
+          <div class="countdown__nums" data-cd-nums>
+            <div><b data-cd="d">00</b><small>days</small></div>
+            <div><b data-cd="h">00</b><small>hrs</small></div>
+            <div><b data-cd="m">00</b><small>min</small></div>
+            <div><b data-cd="s">00</b><small>sec</small></div>
+          </div>
+        </div>
+
+        <div class="price__big num" data-regular="$720">$630</div>
+        <p class="price__alt">Everything above, plus me one on one</p>
+
+        <!-- TODO: two Stripe links, both capped at 6.
+             href            = early bird $630
+             data-regular-href = regular $720, swapped in by script.js on Aug 22 -->
+<!-- Stripe: early bird $630 and regular $720. Both capped at 6. -->
+        <a class="btn btn--wide" href="PASTE_630_LINK" data-regular="Enroll &middot; $720" data-regular-href="PASTE_720_LINK">Enroll &middot; $630</a>
+
+
+        <div class="seats">
+          <!-- TODO: update --taken and the count below as seats fill. 0/6 at launch. -->
+          <div class="seats__bar" style="--taken:0%"><i></i></div>
+          <p class="seats__txt">0 of 6 mentorship seats taken</p>
+        </div>
 
         <ul>
           <li>Everything in the camp</li>
-          <li>Weekly 30-minute private session with me</li>
-          <li>Personalized study plan</li>
-          <li>Homework review + mid-camp progress assessment</li>
-          <li>Written recommendation at the end</li>
+          <li>A private 30-minute session with me every week</li>
+          <li>A study plan built around that student's actual weak areas</li>
+          <li>Their written work read and marked by me each week</li>
+          <li>A mid-camp progress assessment</li>
+          <li>A written evaluation of their progress and readiness at the end</li>
         </ul>
 
         <p class="price__next">
-          Only 6 spots available. Closes when they're gone, not on a date.
+          Six spots, and the price goes to $720 on August 22. Whichever comes first.
         </p>
       </div>
 
@@ -316,83 +498,140 @@
 </section>
 
 <!-- ================= FAQ ================= -->
-<section class="band band--soft">
+<section class="band">
   <div class="wrap faq">
     <h2 style="text-align:center;margin-bottom:44px">Questions</h2>
 
+   
+    <details>
+      <summary>When does it actually start?</summary>
+      <div>Wednesday, September 9, at 5:00 p.m. New York time. That session is the review of
+      the diagnostic practice test, which I send out beforehand for your child to take on
+      their own, under exam conditions. The four weekend lectures start on September 12 and
+      13. Week 0 modules should be done before that first weekend.</div>
+    </details>
+
+<details>
+      <summary>How much work is it outside class?</summary>
+      <div>You get out what you put in. Five hours a week of live class, and a minimum of
+      two hours a week on your own if 100 is the actual target. Every lecture comes with a
+      handout and a problem set, and the students who clear 100 are the ones who do them.
+      A student who attends the live hours and skips the problem sets will not get there,
+      and I would rather say that now than in October.</div>
+    </details>
+
     <details>
       <summary>What's the difference between this and the Basics camp?</summary>
-      <div>The summer Basics camp covered AMC 10 problems 1-8. This one is built for the
+      <div>The summer Basics camp covered AMC 10 problems 1 to 8. This one is built for the
       whole paper and a score above 100, with four parallel tracks and eight weeks of
       problem-solving running right up to the competition.</div>
     </details>
 
     <details>
       <summary>My child didn't do the summer camp. Can they still join?</summary>
-<div>Yes. Week 0 is a set of self-study foundation modules across all four tracks,
-sent out by August 25 and due before September 12, so new students start
-level with returning ones.</div>
+<div>Yes. This cohort is a mix of students who did the summer camp and students who
+      are new to Shef Scholars. Week 0 is four self-study foundation modules across all four
+      tracks. They go out from August 25, and within 48 hours of enrolling if you join after
+      that, so new students start level with returning ones.</div>
     </details>
 
     <details>
       <summary>What if my child can't attend every session live?</summary>
-      <div>Every session is recorded and shared privately.</div>
+      <div>Every session is recorded and shared privately, and recordings stay available
+      through December 31. But recordings are a backup, not a plan. A student who watches
+      most of this instead of attending it will get much less out of it.</div>
     </details>
 
     <details>
-      <summary>How much work is it outside class?</summary>
-      <!-- TODO: give a real number of hours. Parents are budgeting against soccer and
-           SAT prep and this is the question that decides it. -->
-      <div>TODO: hours per week, honestly stated.</div>
+      <summary>My child already scores above 110. Should they join?</summary>
+      <div>Probably not. This program spends its first six weeks building theory that a
+      110 student already has. Email me and I will tell you honestly what I think would
+      help more.</div>
     </details>
 
     <details>
-      <summary>Do you guarantee a score of 100?</summary>
-      <div>No, and be careful of anyone who does. Every student starts somewhere different
-and progress depends on the work they put in. What's guaranteed is the structure
-and my attention, which is why the cohort is capped at 30.</div>
+      <summary>How do we actually register for the AMC 10?</summary>
+      <div>Through your child's school, or through an authorized testing center if the
+      school does not host it. Families cannot register with the MAA directly, and sites
+      usually close two to three weeks before the competition. Start in September. Enrolling
+      in this program does not register your child for the exam. If you are stuck, book a
+      call and I will help you find a site.</div>
+    </details>
+
+<details>
+      <summary>Which sessions are recorded, and is my child on camera?</summary>
+      <div>All sessions are recorded, and yes. This is taught as an interactive class, not a
+      lecture broadcast, so students join with their camera on and will appear in the
+      recordings. Recordings are shared only with enrolled families through a private link,
+      are never posted publicly or used in marketing, and stay available through December 31.
+      If your child is ill or something comes up at home, email me and we will work around
+      it for that session.</div>
+    </details>
+
+<details>
+      <summary>What's the refund policy?</summary>
+      <div>Full refund through September 14. By then your child will have taken the
+      diagnostic practice test, sat the review session on September 9, and attended all
+      four lectures on September 12 and 13. If it is not the right fit after that, email me
+      by September 14 and I will refund you in full. After that date the seat is committed
+      and there are no refunds, because the cohort is capped and a late withdrawal is a seat
+      nobody else could take.</div>
     </details>
 
     <details>
       <summary>Is this affiliated with the MAA or the AMC?</summary>
-      <div>No. We are not affiliated with the Mathematical Association of America. We
-      prepare students to do their best on the competition.</div>
+      <div>No. We are not affiliated with the Mathematical Association of America, and
+      nothing here is endorsed by them. We prepare students to do their best on their
+      competition.</div>
     </details>
 
+    
+
     <details>
-      <summary>What's the refund policy?</summary>
-      <!-- TODO: the old site said no refunds at all. Consider softening to a
-           refund window through the first week. It costs you almost nothing at 30 seats
-           and removes the single biggest objection at checkout. Your call. -->
-      <div>TODO: refund policy.</div>
+      <summary>Where do classes happen?</summary>
+      <!-- TODO: confirm the platform and put the real name here. -->
+      <div>Live on Google Meet. You get the link and the calendar invites as soon as you
+      enroll, along with the Week 0 modules.</div>
     </details>
+
+     <details>
+      <summary>Do you guarantee a score of 100?</summary>
+      <div>No, and be careful of anyone who does. Every student starts somewhere different
+      and progress depends on the work they put in. What is guaranteed is the structure,
+      the material, and my attention, which is why the cohort is capped at 30.</div>
+    </details>
+
 
   </div>
 </section>
 
 <!-- ================= CLOSER ================= -->
-<section class="band">
+<section class="band band--soft">
   <div class="wrap">
     <div class="closer rise">
       <h2>Thirty seats. Eight weeks. One number.</h2>
-      <p>The AMC 10 is in November. Week 0 starts the day you enroll.</p>
-      <p style="margin-top:32px"><a class="btn" href="#pricing">Join the Early Bird Cohort</a></p>
+      <p>AMC 10 A is November 5. Our last session is November 1. Week 0 goes out from August 25.</p>     
+    <p style="margin-top:32px">
+        <a class="btn" href="#pricing" data-regular="Join the Cohort">Join the Early Bird Cohort</a>
+      </p>
+      
     </div>
   </div>
 </section>
 
 <!-- ================= QUESTIONS / BOOK A CALL ================= -->
-<section class="band band--soft">
+<section class="band">
   <div class="wrap" style="text-align:center">
     <p class="eyebrow">Still have questions?</p>
     <h2>Grab 15 minutes on my calendar.</h2>
     <p class="lede" style="margin-inline:auto;margin-top:16px">
-      If you're not sure this is the right fit, or you want to talk through your
-      child's current level before enrolling, book a short call directly.
+      If you are not sure this is the right fit, or you want to talk through your child's
+      current level before enrolling, book a short call. I would rather spend fifteen
+      minutes telling you this is wrong for your child than take your money and prove it in October.
     </p>
     <!-- TODO: swap in the real Google Calendar appointment-scheduling link. -->
     <p style="margin-top:30px">
-      <a class="btn btn--ghost" href="#" target="_blank" rel="noopener">Book a time on Google Calendar</a>
+      <a class="btn btn--ghost" href="https://calendar.app.google/DE97EbXC8PyGae4b9" target="_blank" rel="noopener">Book a time on Google Calendar</a>
     </p>
   </div>
 </section>
@@ -401,13 +640,12 @@ and my attention, which is why the cohort is capped at 30.</div>
 
 <footer class="ftr">
   <div class="wrap ftr__in">
-    <div>&copy; 2026 Shef Scholars. All rights reserved.</div>
-    <div><a href="mailto:marketing@shefscholars.com">marketing@shefscholars.com</a></div>
-    <!-- TODO: port the terms and privacy pages off Squarespace before you kill the site. -->
-    <div><a href="#">Terms</a> &nbsp;·&nbsp; <a href="#">Privacy</a></div>
-  </div>
+    <div>&copy; 2026 Shef Scholars, a program of Shef Education LLC. All rights reserved.</div>
+    <div><a href="mailto:marketing@shefscholars.com">marketing@shefscholars.com</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/c/ShefsofProblemSolving" target="_blank" rel="noopener">YouTube</a></div>
+    <!-- TODO: port terms and privacy off Squarespace before you kill that site. -->
+<div><a href="terms.html">Terms</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a></div>  </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=1"></script>
 </body>
 </html>

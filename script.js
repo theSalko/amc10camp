@@ -20,40 +20,50 @@
 })();
 
 // Early-bird countdown, ends Aug 21, 2026, 11:59:59 PM ET (EDT, UTC-4).
-// TODO: confirm the exact cutoff time you want; this assumes end of day Eastern.
 (function(){
   var deadline = new Date('2026-08-21T23:59:59-04:00').getTime();
-  var els = {
-    d: document.getElementById('cd-d'),
-    h: document.getElementById('cd-h'),
-    m: document.getElementById('cd-m'),
-    s: document.getElementById('cd-s')
-  };
-  var label = document.getElementById('cd-label');
-  var nums = document.querySelector('#countdown .countdown__nums');
-  if(!els.d) return; // countdown markup not on this page
+
+  var cards = document.querySelectorAll('[data-countdown], #countdown');
+  if(!cards.length) return;
 
   function pad(n){ return String(n).padStart(2,'0'); }
 
-  function tick(){
-    var diff = deadline - Date.now();
-    if(diff <= 0){
-      if(label) label.textContent = 'Early bird pricing has ended';
-      if(nums) nums.style.display = 'none';
-      clearInterval(timer);
-      return;
-    }
-    var s = Math.floor(diff/1000);
-    var d = Math.floor(s/86400); s -= d*86400;
-    var h = Math.floor(s/3600); s -= h*3600;
-    var m = Math.floor(s/60); s -= m*60;
-    els.d.textContent = pad(d);
-    els.h.textContent = pad(h);
-    els.m.textContent = pad(m);
-    els.s.textContent = pad(s);
+  function digit(card, k){
+    return card.querySelector('[data-cd="' + k + '"]') ||
+           card.querySelector('#cd-' + k);
   }
 
-  var timer = setInterval(tick, 1000);
+  function expire(){
+    document.querySelectorAll('[data-cd-nums], #countdown .countdown__nums')
+      .forEach(function(el){ el.style.display = 'none'; });
+    document.querySelectorAll('[data-cd-label], #cd-label')
+      .forEach(function(el){ el.textContent = 'Early bird pricing has ended'; });
+    document.querySelectorAll('[data-regular]')
+      .forEach(function(el){ el.innerHTML = el.getAttribute('data-regular'); });
+    document.querySelectorAll('[data-regular-href]').forEach(function(el){
+      var href = el.getAttribute('data-regular-href');
+      if(href && href !== '#') el.setAttribute('href', href);
+    });
+  }
+
+  var timer;
+  function tick(){
+    var diff = deadline - Date.now();
+    if(diff <= 0){ expire(); clearInterval(timer); return; }
+    var s = Math.floor(diff/1000);
+    var d = Math.floor(s/86400); s -= d*86400;
+    var h = Math.floor(s/3600);  s -= h*3600;
+    var m = Math.floor(s/60);    s -= m*60;
+    var v = { d:d, h:h, m:m, s:s };
+    cards.forEach(function(card){
+      for(var k in v){
+        var el = digit(card, k);
+        if(el) el.textContent = pad(v[k]);
+      }
+    });
+  }
+
+  timer = setInterval(tick, 1000);
   tick();
 })();
 

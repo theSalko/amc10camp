@@ -177,7 +177,10 @@ p{margin:0 0 1em}
 .quotes{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
 .quote{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px}
 .quote p{font-size:1.02rem;color:var(--ink)}
-.quote cite{font:600 .9rem/1 var(--mono);color:var(--ink-3);font-style:normal}
+.quote cite{
+  display:block;margin-top:16px;
+  font:600 .9rem/1.4 var(--mono);color:var(--ink-3);font-style:normal
+}
 
 /* ---------- schedule (loaded from schedule.json) ---------- */
 .sched-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
@@ -292,3 +295,43 @@ p{margin:0 0 1em}
   .rise{opacity:1;transform:none}
   .meter__fill{width:calc(100% * 100 / 150)}
 }
+
+
+
+
+
+
+
+/* ---------- callout note ---------- */
+.note{
+  background:var(--orange-soft);border:1px solid var(--line);
+  border-radius:var(--r-md);padding:26px 28px;margin-top:32px
+}
+.note h3{margin:0 0 10px;font-size:1.1rem}
+.note p{color:var(--ink-2);font-size:.98rem;margin-bottom:10px}
+.note p:last-child{margin-bottom:0}
+
+/* ---------- who this is for ---------- */
+.fitgrid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:40px}
+.fit{
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:30px
+}
+.fit h3{margin-bottom:18px}
+.fit ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.fit li{color:var(--ink-2);font-size:.98rem;line-height:1.5;padding-left:26px;position:relative}
+.fit--yes li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:700}
+.fit--no li::before{content:"–";position:absolute;left:0;color:var(--ink-3);font-weight:700}
+.fit--no{background:var(--surface)}
+
+/* ---------- score math + exam dates ---------- */
+.scoremath,.datepair{display:grid;gap:18px;margin:32px 0}
+.scoremath{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.datepair{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.scoremath div,.datepair div{
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--r-md);padding:20px 22px
+}
+.scoremath b{display:block;font:700 2rem/1 var(--mono);color:var(--orange);margin-bottom:6px}
+.datepair b{display:block;font:700 1.3rem/1.2 var(--mono);color:var(--orange);margin-bottom:6px}
+.scoremath small,.datepair small{display:block;font-size:.9rem;line-height:1.45;color:var(--ink-2)}
