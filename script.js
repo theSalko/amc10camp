@@ -75,6 +75,21 @@
 
   var trackVar = { alg: '--alg', geo: '--geo', comb: '--comb', nt: '--nt' };
 
+  function esc(s){
+    return String(s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function pdfLink(s){
+    if(!s.pdf) return '';
+    return '<a class="sched-card__pdf" href="' + esc(encodeURI(s.pdf)) + '" ' +
+           'target="_blank" rel="noopener" ' +
+           'aria-label="' + esc(s.title) + ' PDF, opens in a new tab">' +
+           '<span aria-hidden="true">&#8595;</span> ' +
+           esc(s.pdfLabel || 'Open the PDF') + '</a>';
+  }
+
   function renderWeek(week){
     var wed = null;
     var rest = [];
@@ -83,25 +98,29 @@
     });
 
     var html = '';
-    html += '<div class="sched-head"><h3>' + week.title + '</h3>' +
-            '<span class="sched-date num">' + week.dateNote + '</span></div>';
+    html += '<div class="sched-head"><h3>' + esc(week.title) + '</h3>' +
+            '<span class="sched-date num">' + esc(week.dateNote) + '</span></div>';
     if(week.description){
-      html += '<p class="sched-desc">' + week.description + '</p>';
+      html += '<p class="sched-desc">' + esc(week.description) + '</p>';
+    }
+    if(week.pdf){
+      html += '<p style="margin-top:14px">' + pdfLink(week) + '</p>';
     }
     if(wed){
       html += '<div class="sched-wed">' +
-              '<span class="sched-wed__tag">' + wed.trackLabel + '</span>' +
-              '<b>' + wed.title + '</b>' +
-              '<span class="num">' + wed.when + '</span></div>';
+              '<span class="sched-wed__tag">' + esc(wed.trackLabel) + '</span>' +
+              '<b>' + esc(wed.title) + '</b>' +
+              '<span class="num">' + esc(wed.when) + '</span></div>';
     }
     html += '<div class="sched-grid">';
     rest.forEach(function(s){
       var tc = 'var(' + (trackVar[s.track] || '--ink-3') + ')';
       html += '<div class="sched-card" style="--tc:' + tc + '">' +
-              '<span class="sched-card__track">' + s.trackLabel + '</span>' +
-              '<h4>' + s.title + '</h4>' +
-              '<p class="sched-card__when num">' + s.when + '</p>' +
-              '<p class="sched-card__desc">' + s.description + '</p>' +
+              '<span class="sched-card__track">' + esc(s.trackLabel) + '</span>' +
+              '<h4>' + esc(s.title) + '</h4>' +
+              '<p class="sched-card__when num">' + esc(s.when) + '</p>' +
+              '<p class="sched-card__desc">' + esc(s.description) + '</p>' +
+              pdfLink(s) +
               '</div>';
     });
     html += '</div>';

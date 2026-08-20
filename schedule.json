@@ -14,6 +14,8 @@
           "trackLabel": "Algebra",
           "title": "Algebra Foundations (Pre-Work)",
           "when": "Self-paced, due before Sep 12, 2026",
+          "pdf": "pdfs/A10T100_2026___A00_PSET__00__Algebra_Foundations.pdf",
+
           "description": "Builds arithmetic fluency and word-problem setup: order of operations, nested fractions, grouping symbols, absolute value, and negatives; translating word problems into equations, including rate/distance/time and money/unit conversions; and percent change, successive percentage changes, and percent vs. percentage points." 
         },
           {
@@ -21,6 +23,7 @@
           "trackLabel": "Geometry",
           "title": "Geometry Foundations (Pre-Work)",
           "when": "Self-paced, due before Sep 12, 2026",
+           "pdf": "pdfs/A10T100_2026___G00_PSET__00__Geometry_Foundations.pdf",
           "description": "Covers the geometry toolkit every later lecture assumes: vertical, supplementary, and complementary angles; parallel lines cut by a transversal; area and perimeter formulas for standard shapes; the Pythagorean theorem and common triples (3-4-5, 5-12-13, 8-15-17); and the triangle inequality."
         },
         {
@@ -28,6 +31,7 @@
           "trackLabel": "Combinatorics",
           "title": "Combinatorics Foundations (Pre-Work)",
           "when": "Self-paced, due before Sep 12, 2026",
+           "pdf": "pdfs/A10T100_2026___C00_PSET__00__Combinatorics_Foundations.pdf",
           "description": "Introduces counting fundamentals: inclusive counting (b - a + 1), counting multiples of k in a range, the multiplication principle, factorial notation, and basic permutations of distinct objects."
         },
         {
@@ -35,6 +39,7 @@
           "trackLabel": "Number Theory",
           "title": "Number Theory Foundations (Pre-Work)",
           "when": "Self-paced, due before Sep 12, 2026",
+           "pdf": "pdfs/A10T100_2026___N00_PSET__00__Number_Theory_Foundations.pdf",
           "description": "Covers the standard divisibility tests for 2, 3, 4, 5, 6, 8, 9, 10, and 11, plus the basics of number theory: prime vs. composite, factor trees, prime factorization, and GCD/LCM by listing and by factorization."
         }
       ]

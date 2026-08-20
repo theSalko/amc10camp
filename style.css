@@ -221,6 +221,21 @@ p{margin:0 0 1em}
 .sched-card__desc{color:var(--ink-2);font-size:.92rem;margin-bottom:0}
 .sched-error{color:var(--ink-2)}
 
+
+.sched-card__pdf{
+  display:inline-flex;align-items:center;gap:8px;
+  font:600 .82rem/1 var(--mono);text-decoration:none;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-pill);
+  padding:11px 18px;margin-top:16px;
+  transition:border-color .12s ease,color .12s ease
+}
+.sched-card__pdf:hover{border-color:var(--tc);color:var(--tc)}
+
+/* keep the buttons on one line across the four Week 0 cards */
+.sched-card:has(.sched-card__pdf){display:flex;flex-direction:column}
+.sched-card:has(.sched-card__pdf) .sched-card__desc{margin-bottom:16px}
+.sched-card:has(.sched-card__pdf) .sched-card__pdf{margin-top:auto;align-self:flex-start}
+
 /* ---------- pricing ---------- */
 .pricing-grid{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
