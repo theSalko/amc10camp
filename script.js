@@ -19,9 +19,9 @@
   });
 })();
 
-// Early-bird countdown, ends Aug 21, 2026, 11:59:59 PM ET (EDT, UTC-4).
+// Early-bird countdown, ends Aug 25, 2026, 11:59:59 PM ET (EDT, UTC-4).
 (function(){
-  var deadline = new Date('2026-08-21T23:59:59-04:00').getTime();
+  var deadline = new Date('2026-08-25T23:59:59-04:00').getTime();
 
   var cards = document.querySelectorAll('[data-countdown], #countdown');
   if(!cards.length) return;
