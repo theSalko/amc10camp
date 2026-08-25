@@ -208,6 +208,32 @@ p{margin:0 0 1em}
 .sched-wed b{font-family:var(--display);font-size:1rem}
 .sched-wed .num{color:var(--ink-3);font-size:.85rem;margin-left:auto}
 
+
+
+
+
+.sched-wed__test{
+  display:inline-flex;
+  align-items:center;
+  font:600 .78rem/1 var(--mono);
+  text-decoration:none;
+  color:var(--ink);
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--r-pill);
+  padding:8px 14px;
+  transition:border-color .12s ease;
+}
+
+.sched-wed__test:hover{
+  border-color:var(--ink);
+}
+
+
+
+
+
+
 .sched-grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:22px}
 .sched-card{
   border:1px solid var(--line);border-left:5px solid var(--tc);border-radius:var(--r-md);

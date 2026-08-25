@@ -55,6 +55,8 @@
           "trackLabel": "All Tracks",
           "title": "Diagnostic Practice Test Review",
           "when": "Wed, Sep 9, 2026, 6:00 - 7:00 PM ET",
+          "test": "pdfs/Get_100_Camp_Test_01.pdf",
+          "testLabel": "Open Test 1",
           "description": "Review of the diagnostic practice test, taken on your own beforehand under exam conditions. This is the starting number we measure against."
         },
         {

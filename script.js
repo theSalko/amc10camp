@@ -90,6 +90,17 @@
            esc(s.pdfLabel || 'Open the PDF') + '</a>';
   }
 
+  function testLink(s){
+  if(!s.test) return '';
+
+  return '<a class="sched-wed__test" href="' + esc(encodeURI(s.test)) + '" ' +
+         'target="_blank" rel="noopener" ' +
+         'aria-label="' + esc(s.testLabel || 'Open test') + ', opens in a new tab">' +
+         esc(s.testLabel || 'Open test') +
+         '</a>';
+}
+
+
   function renderWeek(week){
     var wed = null;
     var rest = [];
@@ -106,12 +117,20 @@
     if(week.pdf){
       html += '<p style="margin-top:14px">' + pdfLink(week) + '</p>';
     }
+    // if(wed){
+    //   html += '<div class="sched-wed">' +
+    //           '<span class="sched-wed__tag">' + esc(wed.trackLabel) + '</span>' +
+    //           '<b>' + esc(wed.title) + '</b>' +
+    //           '<span class="num">' + esc(wed.when) + '</span></div>';
+    // }
     if(wed){
       html += '<div class="sched-wed">' +
               '<span class="sched-wed__tag">' + esc(wed.trackLabel) + '</span>' +
               '<b>' + esc(wed.title) + '</b>' +
+              testLink(wed) +
               '<span class="num">' + esc(wed.when) + '</span></div>';
     }
+    
     html += '<div class="sched-grid">';
     rest.forEach(function(s){
       var tc = 'var(' + (trackVar[s.track] || '--ink-3') + ')';
