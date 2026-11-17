@@ -1,174 +1,171 @@
-// Reveal on scroll + fill the hero meter once it's visible.
+// Progressively enhance the page without hiding content when JavaScript is unavailable.
 (function(){
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('is-on'); io.unobserve(e.target); }
-    });
-  },{threshold:.15});
-  document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-on');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .15 });
+    document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+    document.documentElement.classList.add('js-reveal');
+  }
 
-  var m = document.getElementById('heroMeter');
-  if(m){ setTimeout(function(){ m.classList.add('is-on'); }, 250); }
+  var meter = document.getElementById('heroMeter');
+  if(meter) meter.classList.add('is-on');
 
   // One FAQ open at a time.
-  var ds = document.querySelectorAll('.faq details');
-  ds.forEach(function(d){
-    d.addEventListener('toggle', function(){
-      if(d.open) ds.forEach(function(o){ if(o!==d) o.open = false; });
+  var details = document.querySelectorAll('.faq details');
+  details.forEach(function(detail){
+    detail.addEventListener('toggle', function(){
+      if(detail.open){
+        details.forEach(function(other){ if(other !== detail) other.open = false; });
+      }
     });
   });
 })();
 
-// Early-bird countdown, ends Aug 25, 2026, 11:59:59 PM ET (EDT, UTC-4).
+// Early bird includes November 25, 2026 in ET (EST, UTC-5).
 (function(){
-  var deadline = new Date('2026-08-25T23:59:59-04:00').getTime();
+  var deadline = new Date('2026-11-26T00:00:00-05:00').getTime();
+  var countdowns = document.querySelectorAll('[data-countdown]');
+  var timer;
 
-  var cards = document.querySelectorAll('[data-countdown], #countdown');
-  if(!cards.length) return;
-
-  function pad(n){ return String(n).padStart(2,'0'); }
-
-  function digit(card, k){
-    return card.querySelector('[data-cd="' + k + '"]') ||
-           card.querySelector('#cd-' + k);
-  }
+  function pad(n){ return String(n).padStart(2, '0'); }
 
   function expire(){
-    document.querySelectorAll('[data-cd-nums], #countdown .countdown__nums')
-      .forEach(function(el){ el.style.display = 'none'; });
-    document.querySelectorAll('[data-cd-label], #cd-label')
-      .forEach(function(el){ el.textContent = 'Early bird pricing has ended'; });
-    document.querySelectorAll('[data-regular]')
-      .forEach(function(el){ el.innerHTML = el.getAttribute('data-regular'); });
-    document.querySelectorAll('[data-regular-href]').forEach(function(el){
-      var href = el.getAttribute('data-regular-href');
-      if(href && href !== '#') el.setAttribute('href', href);
+    document.querySelectorAll('[data-cd-nums]').forEach(function(el){ el.hidden = true; });
+    document.querySelectorAll('[data-cd-label]').forEach(function(el){
+      el.textContent = 'Early bird pricing has ended';
     });
-  }
-
-  var timer;
-  function tick(){
-    var diff = deadline - Date.now();
-    if(diff <= 0){ expire(); clearInterval(timer); return; }
-    var s = Math.floor(diff/1000);
-    var d = Math.floor(s/86400); s -= d*86400;
-    var h = Math.floor(s/3600);  s -= h*3600;
-    var m = Math.floor(s/60);    s -= m*60;
-    var v = { d:d, h:h, m:m, s:s };
-    cards.forEach(function(card){
-      for(var k in v){
-        var el = digit(card, k);
-        if(el) el.textContent = pad(v[k]);
+    document.querySelectorAll('[data-regular]').forEach(function(el){
+      el.innerHTML = el.getAttribute('data-regular');
+    });
+    var missingStandardCheckout = false;
+    document.querySelectorAll('[data-regular-href]').forEach(function(el){
+      var href = (el.getAttribute('data-regular-href') || '').trim();
+      var validHref = false;
+      try {
+        var protocol = new URL(href).protocol;
+        validHref = protocol === 'https:' || protocol === 'http:';
+      } catch(error) {}
+      if(validHref){
+        el.setAttribute('href', href);
+        el.removeAttribute('aria-disabled');
+        el.removeAttribute('aria-describedby');
+      } else {
+        el.removeAttribute('href');
+        el.setAttribute('role', 'link');
+        el.setAttribute('aria-disabled', 'true');
+        el.setAttribute('aria-describedby', 'checkout-status');
+        missingStandardCheckout = true;
       }
     });
+    var checkoutStatus = document.getElementById('checkout-status');
+    if(checkoutStatus) checkoutStatus.hidden = !missingStandardCheckout;
   }
 
-  timer = setInterval(tick, 1000);
-  tick();
+  function tick(){
+    var diff = deadline - Date.now();
+    if(diff <= 0){
+      expire();
+      if(timer) clearInterval(timer);
+      return false;
+    }
+    var seconds = Math.floor(diff / 1000);
+    var days = Math.floor(seconds / 86400); seconds -= days * 86400;
+    var hours = Math.floor(seconds / 3600); seconds -= hours * 3600;
+    var minutes = Math.floor(seconds / 60); seconds -= minutes * 60;
+    var values = { d: days, h: hours, m: minutes, s: seconds };
+    countdowns.forEach(function(countdown){
+      Object.keys(values).forEach(function(key){
+        var digit = countdown.querySelector('[data-cd="' + key + '"]');
+        if(digit) digit.textContent = pad(values[key]);
+      });
+    });
+    return true;
+  }
+
+  // Price and checkout changes must also work on pages without a countdown widget.
+  if(tick()) timer = setInterval(tick, 1000);
 })();
 
-// Schedule, fetched from schedule.json and rendered as tabs + track cards.
+// Keep the static four-week schedule as a fallback; add week selectors after loading data.
 (function(){
   var tabsEl = document.getElementById('sched-tabs');
   var panelEl = document.getElementById('sched-panel');
-  if(!tabsEl || !panelEl) return;
+  if(!tabsEl || !panelEl || !window.fetch) return;
 
-  var trackVar = { alg: '--alg', geo: '--geo', comb: '--comb', nt: '--nt' };
+  var trackVar = { alg: '--alg', geo: '--geo', comb: '--comb', nt: '--nt', test: '--ink' };
 
-  function esc(s){
-    return String(s)
-      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  function esc(value){
+    return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
-  function pdfLink(s){
-    if(!s.pdf) return '';
-    return '<a class="sched-card__pdf" href="' + esc(encodeURI(s.pdf)) + '" ' +
-           'target="_blank" rel="noopener" ' +
-           'aria-label="' + esc(s.title) + ' PDF, opens in a new tab">' +
-           '<span aria-hidden="true">&#8595;</span> ' +
-           esc(s.pdfLabel || 'Open the PDF') + '</a>';
-  }
-
-  function testLink(s){
-  if(!s.test) return '';
-
-  return '<a class="sched-wed__test" href="' + esc(encodeURI(s.test)) + '" ' +
-         'target="_blank" rel="noopener" ' +
-         'aria-label="' + esc(s.testLabel || 'Open test') + ', opens in a new tab">' +
-         esc(s.testLabel || 'Open test') +
-         '</a>';
-}
-
-
-  function renderWeek(week){
-    var wed = null;
-    var rest = [];
-    week.sessions.forEach(function(s){
-      if(s.track === 'all'){ wed = s; } else { rest.push(s); }
-    });
-
-    var html = '';
-    html += '<div class="sched-head"><h3>' + esc(week.title) + '</h3>' +
-            '<span class="sched-date num">' + esc(week.dateNote) + '</span></div>';
-    if(week.description){
-      html += '<p class="sched-desc">' + esc(week.description) + '</p>';
-    }
-    if(week.pdf){
-      html += '<p style="margin-top:14px">' + pdfLink(week) + '</p>';
-    }
-    // if(wed){
-    //   html += '<div class="sched-wed">' +
-    //           '<span class="sched-wed__tag">' + esc(wed.trackLabel) + '</span>' +
-    //           '<b>' + esc(wed.title) + '</b>' +
-    //           '<span class="num">' + esc(wed.when) + '</span></div>';
-    // }
-    if(wed){
-      html += '<div class="sched-wed">' +
-              '<span class="sched-wed__tag">' + esc(wed.trackLabel) + '</span>' +
-              '<b>' + esc(wed.title) + '</b>' +
-              testLink(wed) +
-              '<span class="num">' + esc(wed.when) + '</span></div>';
-    }
-    
+  function weekMarkup(week){
+    var html = '<div class="sched-head"><h3>' + esc(week.title) + '</h3>' +
+      '<span class="sched-date num">' + esc(week.dateNote) + '</span></div>';
+    if(week.description) html += '<p class="sched-desc">' + esc(week.description) + '</p>';
     html += '<div class="sched-grid">';
-    rest.forEach(function(s){
-      var tc = 'var(' + (trackVar[s.track] || '--ink-3') + ')';
-      html += '<div class="sched-card" style="--tc:' + tc + '">' +
-              '<span class="sched-card__track">' + esc(s.trackLabel) + '</span>' +
-              '<h4>' + esc(s.title) + '</h4>' +
-              '<p class="sched-card__when num">' + esc(s.when) + '</p>' +
-              '<p class="sched-card__desc">' + esc(s.description) + '</p>' +
-              pdfLink(s) +
-              '</div>';
+    week.sessions.forEach(function(session, index){
+      var color = 'var(' + (trackVar[session.track] || '--ink-3') + ')';
+      html += '<div class="sched-card" style="--tc:' + color + '">' +
+        '<span class="sched-card__track">Session ' + (index + 1) + '</span>' +
+        '<h4>' + esc(session.title) + '</h4>' +
+        '<p class="sched-card__when num">' + esc(session.when) + '</p>';
+      if(session.description){
+        html += '<p class="sched-card__desc">' + esc(session.description) + '</p>';
+      }
+      html += '</div>';
     });
-    html += '</div>';
-    panelEl.innerHTML = html;
+    return html + '</div>';
   }
 
-  fetch('schedule.json')
-    .then(function(r){
-      if(!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
+  function validWeek(week){
+    return week && typeof week.label === 'string' && typeof week.title === 'string' &&
+      typeof week.dateNote === 'string' && Array.isArray(week.sessions) &&
+      week.sessions.length === 2 && week.sessions.every(function(session){
+        return session && typeof session.title === 'string' && typeof session.when === 'string';
+      });
+  }
+
+  fetch('schedule.json?v=december-2026')
+    .then(function(response){
+      if(!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
     })
     .then(function(data){
-      data.weeks.forEach(function(week, i){
-        var tab = document.createElement('button');
-        tab.type = 'button';
-        tab.className = 'sched-tab' + (i === 0 ? ' is-active' : '');
-        tab.textContent = week.label;
-        tab.addEventListener('click', function(){
-          tabsEl.querySelectorAll('.sched-tab').forEach(function(t){ t.classList.remove('is-active'); });
-          tab.classList.add('is-active');
-          renderWeek(week);
+      if(!data || !Array.isArray(data.weeks) || !data.weeks.length || !data.weeks.every(validWeek)){
+        throw new Error('Invalid schedule data');
+      }
+      // Prepare everything before replacing the visible static fallback.
+      var markups = data.weeks.map(weekMarkup);
+      var selectors = document.createDocumentFragment();
+      data.weeks.forEach(function(week, index){
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'sched-tab' + (index === 0 ? ' is-active' : '');
+        button.textContent = week.label;
+        button.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+        button.setAttribute('aria-controls', 'sched-panel');
+        button.addEventListener('click', function(){
+          tabsEl.querySelectorAll('.sched-tab').forEach(function(other){
+            var active = other === button;
+            other.classList.toggle('is-active', active);
+            other.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          panelEl.innerHTML = markups[index];
         });
-        tabsEl.appendChild(tab);
+        selectors.appendChild(button);
       });
-      if(data.weeks.length) renderWeek(data.weeks[0]);
+      tabsEl.replaceChildren(selectors);
+      panelEl.innerHTML = markups[0];
     })
-    .catch(function(err){
-      panelEl.innerHTML = '<p class="sched-error">Couldn\'t load the schedule (' + err.message +
-        '). If you\'re opening this file directly from disk, serve the folder over HTTP so fetch() can reach schedule.json.</p>';
-      console.error('Schedule load failed:', err);
+    .catch(function(error){
+      // The full December schedule remains readable if the request fails.
+      console.warn('Using the on-page December schedule:', error);
     });
 })();

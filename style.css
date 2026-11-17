@@ -174,7 +174,7 @@ p{margin:0 0 1em}
 }
 
 /* ---------- testimonials ---------- */
-.quotes{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.quotes{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
 .quote{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px}
 .quote p{font-size:1.02rem;color:var(--ink)}
 .quote cite{
@@ -264,7 +264,7 @@ p{margin:0 0 1em}
 
 /* ---------- pricing ---------- */
 .pricing-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
   gap:28px;max-width:940px;margin-inline:auto;align-items:start
 }
 .price{
@@ -329,11 +329,12 @@ p{margin:0 0 1em}
 .ftr a{color:var(--ink-2)}
 
 /* ---------- motion ---------- */
-.rise{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.rise{opacity:1;transform:none}
+.js-reveal .rise{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .rise.is-on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .rise{opacity:1;transform:none}
+  .js-reveal .rise{opacity:1;transform:none}
   .meter__fill{width:calc(100% * 100 / 150)}
 }
 
@@ -353,7 +354,7 @@ p{margin:0 0 1em}
 .note p:last-child{margin-bottom:0}
 
 /* ---------- who this is for ---------- */
-.fitgrid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:40px}
+.fitgrid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));margin-top:40px}
 .fit{
   background:var(--paper);border:1px solid var(--line);
   border-radius:var(--r-lg);padding:30px
@@ -376,3 +377,17 @@ p{margin:0 0 1em}
 .scoremath b{display:block;font:700 2rem/1 var(--mono);color:var(--orange);margin-bottom:6px}
 .datepair b{display:block;font:700 1.3rem/1.2 var(--mono);color:var(--orange);margin-bottom:6px}
 .scoremath small,.datepair small{display:block;font-size:.9rem;line-height:1.45;color:var(--ink-2)}
+/* Monthly offer: preserve the original layout with three enrollment options. */
+[hidden]{display:none!important}
+html{scroll-padding-top:90px}
+.sched-tabs:empty{display:none}
+.sched-fallback-week + .sched-fallback-week{margin-top:32px}
+.sched-card__when{line-height:1.5}
+.enrollment-note{text-align:center;font-size:.9rem;color:var(--ink-2);margin:26px 0 0}
+.btn[aria-disabled="true"]{cursor:default}
+.btn[aria-disabled="true"]:active{transform:none;box-shadow:0 var(--shift) 0 var(--orange-deep)}
+@media(max-width:480px){
+  .countdown__nums{gap:6px}
+  .countdown__nums div{min-width:0;flex:1;padding:10px 5px}
+  .price__big small{font-size:.85rem}
+}
