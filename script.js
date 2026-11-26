@@ -27,9 +27,9 @@
   });
 })();
 
-// Early bird includes November 25, 2026 in ET (EST, UTC-5).
+// Early bird includes November 27, 2026 in ET (EST, UTC-5).
 (function(){
-  var deadline = new Date('2026-11-26T00:00:00-05:00').getTime();
+  var deadline = new Date('2026-11-28T00:00:00-05:00').getTime();
   var countdowns = document.querySelectorAll('[data-countdown]');
   var timer;
 
