@@ -113,11 +113,19 @@
     week.sessions.forEach(function(session, index){
       var color = 'var(' + (trackVar[session.track] || '--ink-3') + ')';
       html += '<div class="sched-card" style="--tc:' + color + '">' +
-        '<span class="sched-card__track">Session ' + (index + 1) + '</span>' +
+        '<span class="sched-card__track">Session ' + (index + 1) +
+          (session.trackLabel ? ' · ' + esc(session.trackLabel) : '') + '</span>' +
         '<h4>' + esc(session.title) + '</h4>' +
         '<p class="sched-card__when num">' + esc(session.when) + '</p>';
       if(session.description){
         html += '<p class="sched-card__desc">' + esc(session.description) + '</p>';
+      }
+      if(Array.isArray(session.topics) && session.topics.length){
+        html += '<ul class="sched-card__topics">';
+        session.topics.forEach(function(topic){
+          html += '<li>' + esc(topic) + '</li>';
+        });
+        html += '</ul>';
       }
       html += '</div>';
     });
@@ -128,11 +136,13 @@
     return week && typeof week.label === 'string' && typeof week.title === 'string' &&
       typeof week.dateNote === 'string' && Array.isArray(week.sessions) &&
       week.sessions.length === 2 && week.sessions.every(function(session){
-        return session && typeof session.title === 'string' && typeof session.when === 'string';
+        return session && typeof session.title === 'string' && typeof session.when === 'string' &&
+          (session.topics === undefined || (Array.isArray(session.topics) &&
+            session.topics.every(function(topic){ return typeof topic === 'string'; })));
       });
   }
 
-  fetch('schedule.json?v=december-2026')
+  fetch('schedule.json?v=december-2026-lectures')
     .then(function(response){
       if(!response.ok) throw new Error('HTTP ' + response.status);
       return response.json();

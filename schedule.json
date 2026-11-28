@@ -11,14 +11,28 @@
         {
           "track": "alg",
           "trackLabel": "Algebra",
-          "title": "Algebra",
-          "when": "11:00 AM–12:00 PM ET"
+          "title": "Quick algebraic manipulation",
+          "when": "11:00 AM–12:00 PM ET",
+          "description": "Choose useful algebraic forms before expanding or solving.",
+          "topics": [
+            "Common factors and grouping",
+            "Difference of squares, perfect squares, and conjugate products",
+            "Simplifying rational expressions and checking denominators",
+            "Evaluating expressions from a known sum and product"
+          ]
         },
         {
           "track": "nt",
           "trackLabel": "Number Theory",
-          "title": "Number Theory",
-          "when": "12:30–1:30 PM ET"
+          "title": "Divisors and perfect powers",
+          "when": "12:30–1:30 PM ET",
+          "description": "Use prime exponents to count divisors and recognize perfect powers.",
+          "topics": [
+            "Prime factorization and exponent choices",
+            "Counting positive divisors and divisors with extra conditions",
+            "Recognizing square and cube divisors",
+            "Least multipliers and largest square divisors"
+          ]
         }
       ]
     },
@@ -31,14 +45,30 @@
         {
           "track": "alg",
           "trackLabel": "Algebra",
-          "title": "Algebra",
-          "when": "11:00 AM–12:00 PM ET"
+          "title": "Polynomial division, factors, and remainders",
+          "when": "11:00 AM–12:00 PM ET",
+          "description": "Use division, evaluations, and roots to simplify polynomial problems.",
+          "topics": [
+            "Polynomial division and the quotient–remainder identity",
+            "Remainders from evaluating a polynomial",
+            "Roots and the factor theorem",
+            "Simplifying quotients while keeping denominator restrictions",
+            "Finding coefficients from roots or remainders"
+          ]
         },
         {
           "track": "comb",
           "trackLabel": "Combinatorics",
-          "title": "Combinatorics",
-          "when": "12:30–1:30 PM ET"
+          "title": "Counting integer solutions with restrictions",
+          "when": "12:30–1:30 PM ET",
+          "description": "Turn restrictions into nonnegative variables or short, complete cases.",
+          "topics": [
+            "Stars and bars for distributions of identical objects",
+            "Positive and nonnegative integer solutions",
+            "Lower bounds and substitutions",
+            "Weighted equations and parity restrictions",
+            "Short cases that count every solution exactly once"
+          ]
         }
       ]
     },
@@ -51,14 +81,30 @@
         {
           "track": "alg",
           "trackLabel": "Algebra",
-          "title": "Algebra",
-          "when": "11:00 AM–12:00 PM ET"
+          "title": "Completing the square and maximum/minimum",
+          "when": "11:00 AM–12:00 PM ET",
+          "description": "Find bounds from squares and explain when they are attained.",
+          "topics": [
+            "Rewriting quadratics by completing the square",
+            "Maximum and minimum values and equality conditions",
+            "Maximum products with a fixed sum",
+            "Minimum sums of squares",
+            "Checking integer and interval restrictions"
+          ]
         },
         {
           "track": "geo",
           "trackLabel": "Geometry",
-          "title": "Geometry",
-          "when": "12:30–1:30 PM ET"
+          "title": "Tangency through radii and right triangles",
+          "when": "12:30–1:30 PM ET",
+          "description": "Turn tangency into useful lengths by adding radii and joining centers.",
+          "topics": [
+            "Perpendicular radii at tangency points",
+            "Distances between centers of tangent circles",
+            "Equal tangent segments",
+            "Right triangles formed by joining centers",
+            "Common tangents and circles in rectangles or right triangles"
+          ]
         }
       ]
     },
@@ -71,14 +117,27 @@
         {
           "track": "alg",
           "trackLabel": "Algebra",
-          "title": "Algebra",
-          "when": "11:00 AM–12:00 PM ET"
+          "title": "Finding polynomials",
+          "when": "11:00 AM–12:00 PM ET",
+          "description": "Reconstruct a polynomial or find a requested value from roots and evaluations.",
+          "topics": [
+            "Building a polynomial from its roots, degree, and leading coefficient",
+            "Determining the remaining scale from a known value",
+            "Root sums, products, and coefficient comparison",
+            "Using known values and turning equal outputs into roots",
+            "Checking degree and uniqueness"
+          ]
         },
         {
           "track": "test",
           "trackLabel": "Test",
-          "title": "Test",
-          "when": "12:30–1:30 PM ET"
+          "title": "Test and review",
+          "when": "12:30–1:30 PM ET",
+          "description": "Apply December’s selected topics and review solution strategies.",
+          "topics": [
+            "A test drawing on the month’s lectures",
+            "Review of approaches and common mistakes"
+          ]
         }
       ]
     }
